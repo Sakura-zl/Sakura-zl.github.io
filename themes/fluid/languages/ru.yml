@@ -1,0 +1,101 @@
+name: "Русский"
+
+home:
+  menu: "Главная"
+  title: "Главная"
+
+articles:
+  menu: "Статьи"
+  title: "Статьи"
+  subtitle: "Статьи"
+  post_total: "%d сообщений всего"
+
+archive:
+  menu: "Архивы"
+  title: "Архивы"
+  subtitle: "Архивы"
+  post_total: "%d сообщений всего"
+
+category:
+  menu: "Категории"
+  title: "Категории"
+  subtitle: "Категории"
+  post_total: "%d сообщений всего"
+  more: "More..."
+
+tag:
+  menu: "Теги"
+  title: "Теги"
+  subtitle: "Теги"
+  post_total: "%d сообщений всего"
+
+tools:
+  menu: "Инструменты"
+  title: "Инструменты"
+  subtitle: "Инструменты"
+
+oneself:
+  menu: "Pri"
+  title: "Pri"
+  subtitle: "Pri"
+
+windows:
+  menu: "Windows"
+  title: "Windows"
+  subtitle: "Windows"
+
+linux:
+  menu: "Linux"
+  title: "Linux"
+  subtitle: "Linux"
+
+macos:
+  menu: "macOS"
+  title: "macOS"
+  subtitle: "macOS"
+
+about:
+  menu: "О"
+  title: "О"
+  subtitle: "О"
+
+links:
+  menu: "Ссылки"
+  title: "Ссылки"
+  subtitle: "Ссылки"
+
+page404:
+  menu: "Страница не найдена"
+  title: "Страница не найдена"
+  subtitle: "Страница не найдена"
+
+post:
+  toc: "Оглавление"
+  prev_post: "Предыдущий"
+  next_post: "Следующий"
+  updated: "Последнее обновление %s"
+  meta:
+    wordcount: "%s слов"
+    min2read: "%s минут"
+    views: "{} просмотров"
+  copyright:
+    author: "Автор"
+    posted: "Опубликовано на"
+    updated: "Обновлено"
+    license: "Лицензировано под"
+    CC: "CC - Creative Commons license"
+    BY: "BY - Attribution"
+    SA: "SA - Share-alike"
+    NC: "NC - Non-commercial"
+    ND: "ND - No derivative works"
+    ZERO: "CC0 - No Copyright"
+
+footer:
+  pv: "Просмотров: {}"
+  uv: "Посетителей: {}"
+
+search:
+  title: "Поиск"
+  keyword: "Ключевое слово"
+
+noscript_warning: "Блог лучше всего работает с включенным JavaScript"
