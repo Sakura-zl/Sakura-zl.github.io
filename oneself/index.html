@@ -1,0 +1,1512 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/sakura.png">
+  <link rel="icon" href="/img/sakura.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sakura">
+  <meta name="keywords" content="技术博客,Linux,Windows,AI工具,编程,学习笔记">
+  
+    <meta name="description" content="系统工具       上网工具       开发编程       设计创意       效率办公       AI资源       学习资源       数据资源       影音娱乐       生活实用       网络资源                                系统工具                                 系统">
+<meta property="og:type" content="website">
+<meta property="og:title" content="工具">
+<meta property="og:url" content="https://sakura-zl.github.io/oneself/index.html">
+<meta property="og:site_name" content="Sakura">
+<meta property="og:description" content="系统工具       上网工具       开发编程       设计创意       效率办公       AI资源       学习资源       数据资源       影音娱乐       生活实用       网络资源                                系统工具                                 系统">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Sakura">
+<meta property="article:tag" content="AI工具">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="技术博客">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>工具 - Sakura</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_5037651_57b9f0voppt.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/tools-grid.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"sakura-zl.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h2,h3,h4","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-10-10T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Sakura&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-archive"></i>
+                <span>文章</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/" target="_self">
+                    <i class="iconfont icon-categories"></i>
+                    <span>分类</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/" target="_self">
+                    <i class="iconfont icon-tags"></i>
+                    <span>标签</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/" target="_self">
+                    <i class="iconfont icon-articles"></i>
+                    <span>归档</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-tool-fill"></i>
+                <span>工具</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/oneself/" target="_self">
+                    <i class="iconfont icon-function_oneself"></i>
+                    <span>个人</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/windows/" target="_self">
+                    <i class="iconfont icon-windows"></i>
+                    <span>Windows</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/linux/" target="_self">
+                    <i class="iconfont icon-linux"></i>
+                    <span>Linux</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/macos/" target="_self">
+                    <i class="iconfont icon-ios"></i>
+                    <span>macOS</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-about"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default_xm.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="工具"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<article class="page-content">
+  <div class="tools-layout-container">
+  <div class="tools-categories-nav">
+    <ul class="categories-list">
+      <li><a href="#system-tools" class="category-nav-link active">系统工具</a></li>
+      <li><a href="#internet-tools" class="category-nav-link ">上网工具</a></li>
+      <li><a href="#development" class="category-nav-link ">开发编程</a></li>
+      <li><a href="#design-creative" class="category-nav-link ">设计创意</a></li>
+      <li><a href="#efficiency-office" class="category-nav-link ">效率办公</a></li>
+      <li><a href="#ai-resources" class="category-nav-link ">AI资源</a></li>
+      <li><a href="#learning-resources" class="category-nav-link ">学习资源</a></li>
+      <li><a href="#data-resources" class="category-nav-link ">数据资源</a></li>
+      <li><a href="#entertainment" class="category-nav-link ">影音娱乐</a></li>
+      <li><a href="#life-tools" class="category-nav-link ">生活实用</a></li>
+      <li><a href="#web-resources" class="category-nav-link ">网络资源</a></li>
+    </ul>
+  </div>
+  <div class="tools-content">
+    <div id="system-tools" class="tools-category-section" style="--n: 1">
+      <div class="category-header-container">
+        <h2 class="category-section-title">系统工具</h2>
+        <div class="subcategory-nav">
+          <ul>
+            <li><button class="subcategory-btn active" data-subcategory="system-enhancement">系统增强</button></li>
+            <li><button class="subcategory-btn " data-subcategory="driver-management">驱动管理</button></li>
+            <li><button class="subcategory-btn " data-subcategory="security-protection">安全防护</button></li>
+          </ul>
+        </div>
+      </div>
+      <div id="system-enhancement" class="subcategory-content active">
+        <div class="tools-grid">
+          <a href="https://www.u-tools.cn/index.html" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-logo"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">uTools</h3>
+            </div>
+          </a>
+          <a href="https://7-zip.org/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-zip"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">7-Zip</h3>
+            </div>
+          </a>
+          <a href="https://www.voidtools.com/zh-cn/support/everything/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-everything"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Everything</h3>
+            </div>
+          </a>
+          <a href="https://www.ccleaner.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-clean"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">CCleaner</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="driver-management" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.nvidia.cn/drivers/lookup/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-gpu"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">NVIDIA驱动</h3>
+            </div>
+          </a>
+          <a href="https://www.amd.com/zh-cn/support/download/drivers.html" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-cpu"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">AMD驱动</h3>
+            </div>
+          </a>
+          <a href="https://www.drivergenius.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-driver"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">驱动精灵</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="security-protection" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.huorong.cn/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-security"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">火绒安全</h3>
+            </div>
+          </a>
+          <a href="https://www.microsoft.com/security" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-shield"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Windows Defender</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="internet-tools" class="tools-category-section" style="--n: 2">
+      <div class="category-header-container">
+        <h2 class="category-section-title">上网工具</h2>
+        <div class="subcategory-nav">
+          <ul>
+            <li><button class="subcategory-btn active" data-subcategory="browsers">网页浏览</button></li>
+            <li><button class="subcategory-btn " data-subcategory="download-tools">资源下载</button></li>
+            <li><button class="subcategory-btn " data-subcategory="cloud-storage">云盘存储</button></li>
+            <li><button class="subcategory-btn " data-subcategory="network-security">安全接入</button></li>
+          </ul>
+        </div>
+      </div>
+      <div id="browsers" class="subcategory-content active">
+        <div class="tools-grid">
+          <a href="https://www.google.cn/chrome/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-chrome"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Google Chrome</h3>
+            </div>
+          </a>
+          <a href="https://www.microsoft.com/edge" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-edge"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Microsoft Edge</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="download-tools" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://motrix.app/zh-CN/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-download"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Motrix</h3>
+            </div>
+          </a>
+          <a href="https://www.internetdownloadmanager.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-download-manager"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">IDM</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="cloud-storage" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.123pan.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-cloud"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">123云盘</h3>
+            </div>
+          </a>
+          <a href="https://www.aliyundrive.com/sign/in?spm=aliyundrive.index.0.0.3e1e6020i61iJD" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-alicloud"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">阿里云盘</h3>
+            </div>
+          </a>
+          <a href="https://yun.139.com/w/#/index" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-mobile-cloud"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">和彩云</h3>
+            </div>
+          </a>
+          <a href="https://pan.baidu.com/disk/home?#/all?path=%2F&vmode=list" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-baidu-cloud"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">百度网盘</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="network-security" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://xmrth.cc/user" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-vpn"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">XMRth</h3>
+            </div>
+          </a>
+          <a href="https://github.com/Dreamacro/clash" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-proxy"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Clash</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="development" class="tools-category-section" style="--n: 3">
+      <div class="category-header-container">
+        <h2 class="category-section-title">开发编程</h2>
+        <div class="subcategory-nav">
+          <ul>
+            <li><button class="subcategory-btn active" data-subcategory="ide-tools">开发工具</button></li>
+            <li><button class="subcategory-btn " data-subcategory="api-testing">接口测试</button></li>
+            <li><button class="subcategory-btn " data-subcategory="version-control">版本管理</button></li>
+            <li><button class="subcategory-btn " data-subcategory="database-tools">数据库工具</button></li>
+            <li><button class="subcategory-btn " data-subcategory="dev-environment">开发环境</button></li>
+            <li><button class="subcategory-btn " data-subcategory="frontend-dev">前端开发</button></li>
+            <li><button class="subcategory-btn " data-subcategory="backend-dev">后端架构</button></li>
+          </ul>
+        </div>
+      </div>
+      <div id="ide-tools" class="subcategory-content active">
+        <div class="tools-grid">
+          <a href="https://code.visualstudio.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-vscode"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">VS Code</h3>
+            </div>
+          </a>
+          <a href="https://tabby.sh/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-terminal"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Tabby</h3>
+            </div>
+          </a>
+          <a href="https://www.jetbrains.com/idea/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-idea"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">IntelliJ IDEA</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="api-testing" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.soapui.org/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-api"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">SoapUI</h3>
+            </div>
+          </a>
+          <a href="https://console.apipost.cn/project/85a4106a-0f33-43a2-8682-b6610b704f17/lately" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-api-test"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Apipost</h3>
+            </div>
+          </a>
+          <a href="https://www.apifox.cn/web/main" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-fox"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Apifox</h3>
+            </div>
+          </a>
+          <a href="https://web.postman.co/workspace/My-Workspace~350a75c9-2c91-462f-80b2-68120f07b7de" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-postman"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Postman</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="version-control" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://git-scm.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-git"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Git</h3>
+            </div>
+          </a>
+          <a href="https://github.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-github"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">GitHub</h3>
+            </div>
+          </a>
+          <a href="https://about.gitlab.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-gitlab"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">GitLab</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="database-tools" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://dbeaver.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-database"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">DBeaver</h3>
+            </div>
+          </a>
+          <a href="https://www.navicat.com.cn/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-db-manager"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Navicat</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="dev-environment" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.flyenv.com/zh/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-environment"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">FlyEnv</h3>
+            </div>
+          </a>
+          <a href="https://www.docker.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-docker"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Docker</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="frontend-dev" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://react.dev/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-react"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">React</h3>
+            </div>
+          </a>
+          <a href="https://vuejs.org/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-vue"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Vue.js</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="backend-dev" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://spring.io/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-spring"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Spring</h3>
+            </div>
+          </a>
+          <a href="https://nodejs.org/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-nodejs"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Node.js</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="design-creative" class="tools-category-section" style="--n: 4">
+      <div class="category-header-container">
+        <h2 class="category-section-title">设计创意</h2>
+        <div class="subcategory-nav">
+          <ul>
+            <li><button class="subcategory-btn active" data-subcategory="ui-design">UI设计</button></li>
+            <li><button class="subcategory-btn " data-subcategory="graphic-design">平面设计</button></li>
+            <li><button class="subcategory-btn " data-subcategory="audio-resources">音效素材</button></li>
+            <li><button class="subcategory-btn " data-subcategory="font-design">字体设计</button></li>
+          </ul>
+        </div>
+      </div>
+      <div id="ui-design" class="subcategory-content active">
+        <div class="tools-grid">
+          <a href="https://www.figma.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-figma"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Figma</h3>
+            </div>
+          </a>
+          <a href="https://www.sketch.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-sketch"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Sketch</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="graphic-design" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.canva.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-canva"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Canva</h3>
+            </div>
+          </a>
+          <a href="https://www.adobe.com/products/photoshop.html" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-ps"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Adobe Photoshop</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="audio-resources" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.audacityteam.org/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-audio"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Audacity</h3>
+            </div>
+          </a>
+          <a href="https://freesound.org/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-sound"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">FreeSound</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="font-design" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.fontspace.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-font"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">FontSpace</h3>
+            </div>
+          </a>
+          <a href="https://fonts.google.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-google-fonts"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Google Fonts</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="efficiency-office" class="tools-category-section" style="--n: 5">
+      <div class="category-header-container">
+        <h2 class="category-section-title">效率办公</h2>
+        <div class="subcategory-nav">
+          <ul>
+            <li><button class="subcategory-btn active" data-subcategory="note-docs">笔记文档</button></li>
+            <li><button class="subcategory-btn " data-subcategory="team-collaboration">团队协作</button></li>
+            <li><button class="subcategory-btn " data-subcategory="efficiency-tools">效率提升</button></li>
+            <li><button class="subcategory-btn " data-subcategory="communication">通讯沟通</button></li>
+          </ul>
+        </div>
+      </div>
+      <div id="note-docs" class="subcategory-content active">
+        <div class="tools-grid">
+          <a href="https://obsidian.md/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-obsidian"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Obsidian</h3>
+            </div>
+          </a>
+          <a href="https://www.notion.so/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-notion"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Notion</h3>
+            </div>
+          </a>
+          <a href="https://typora.io/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-markdown"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Typora</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="team-collaboration" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.feishu.cn/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-feishu"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">飞书</h3>
+            </div>
+          </a>
+          <a href="https://www.dingtalk.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-dingtalk"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">钉钉</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="efficiency-tools" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://m365.cloud.microsoft/apps/?auth=2&home=1&from=ShellLogo" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-copilot"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">M365 Copilot</h3>
+            </div>
+          </a>
+          <a href="https://www.processon.com/diagrams" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-diagram"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">ProcessOn</h3>
+            </div>
+          </a>
+          <a href="https://xmind.cn/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-mindmap"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">XMind</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="communication" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://mail.qq.com/cgi-bin/frame_html?sid=YZSaRO_YZZ28UwJg&r=f0c7256691d7a7102d84390bebe5b2bd" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-qq-mail"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">QQ邮箱</h3>
+            </div>
+          </a>
+          <a href="https://mail.111.com/mail/#/home" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-111-mail"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">111完美邮箱</h3>
+            </div>
+          </a>
+          <a href="https://mail.88.com/mail/#/home" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-88-mail"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">88完美邮箱</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="ai-resources" class="tools-category-section" style="--n: 6">
+      <div class="category-header-container">
+        <h2 class="category-section-title">AI资源</h2>
+        <div class="subcategory-nav">
+          <ul>
+            <li><button class="subcategory-btn active" data-subcategory="ai-chat">智能对话</button></li>
+            <li><button class="subcategory-btn " data-subcategory="ai-drawing">AI绘图</button></li>
+            <li><button class="subcategory-btn " data-subcategory="code-assistant">代码助手</button></li>
+            <li><button class="subcategory-btn " data-subcategory="prompt-library">提示词库</button></li>
+          </ul>
+        </div>
+      </div>
+      <div id="ai-chat" class="subcategory-content active">
+        <div class="tools-grid">
+          <a href="https://chat.openai.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-chatgpt"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">ChatGPT</h3>
+            </div>
+          </a>
+          <a href="https://claude.ai/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-claude"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Claude</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="ai-drawing" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.midjourney.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-midjourney"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Midjourney</h3>
+            </div>
+          </a>
+          <a href="https://stability.ai/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-sd"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Stable Diffusion</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="code-assistant" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://github.com/features/copilot" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-copilot"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">GitHub Copilot</h3>
+            </div>
+          </a>
+          <a href="https://www.cursor.so/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-cursor"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Cursor</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="prompt-library" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://promptbase.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-prompt"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">PromptBase</h3>
+            </div>
+          </a>
+          <a href="https://openart.ai/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-art"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">OpenArt</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="learning-resources" class="tools-category-section" style="--n: 7">
+      <div class="category-header-container">
+        <h2 class="category-section-title">学习资源</h2>
+        <div class="subcategory-nav">
+          <ul>
+            <li><button class="subcategory-btn active" data-subcategory="e-books">电子图书</button></li>
+            <li><button class="subcategory-btn " data-subcategory="academic-papers">学术论文</button></li>
+            <li><button class="subcategory-btn " data-subcategory="online-courses">公开课程</button></li>
+            <li><button class="subcategory-btn " data-subcategory="language-learning">语言学习</button></li>
+          </ul>
+        </div>
+      </div>
+      <div id="e-books" class="subcategory-content active">
+        <div class="tools-grid">
+          <a href="https://reader.960960.xyz/#/manager/home" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-ebook"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Koodo Reader</h3>
+            </div>
+          </a>
+          <a href="https://weread.qq.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-wechat-read"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">微信读书</h3>
+            </div>
+          </a>
+          <a href="https://z-lib.org/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-library"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Z-Library</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="academic-papers" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://scholar.google.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-scholar"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Google Scholar</h3>
+            </div>
+          </a>
+          <a href="https://arxiv.org/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-paper"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">arXiv</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="online-courses" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.coursera.org/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-course"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Coursera</h3>
+            </div>
+          </a>
+          <a href="https://www.edx.org/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-edx"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">edX</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="language-learning" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.duolingo.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-language"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Duolingo</h3>
+            </div>
+          </a>
+          <a href="https://www.deepl.com/translator" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-translate"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">DeepL翻译</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="data-resources" class="tools-category-section" style="--n: 8">
+      <div class="category-header-container">
+        <h2 class="category-section-title">数据资源</h2>
+        <div class="subcategory-nav">
+          <ul>
+            <li><button class="subcategory-btn active" data-subcategory="data-platforms">数据平台</button></li>
+            <li><button class="subcategory-btn " data-subcategory="datasets">数据集市</button></li>
+            <li><button class="subcategory-btn " data-subcategory="data-visualization">可视化</button></li>
+            <li><button class="subcategory-btn " data-subcategory="web-crawler">网络爬虫</button></li>
+          </ul>
+        </div>
+      </div>
+      <div id="data-platforms" class="subcategory-content active">
+        <div class="tools-grid">
+          <a href="https://www.kaggle.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-kaggle"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Kaggle</h3>
+            </div>
+          </a>
+          <a href="https://www.data.gov/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-data"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Data.gov</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="datasets" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://archive.ics.uci.edu/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-dataset"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">UCI Machine Learning</h3>
+            </div>
+          </a>
+          <a href="https://huggingface.co/datasets" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-huggingface"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Hugging Face</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="data-visualization" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.tableau.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-tableau"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Tableau</h3>
+            </div>
+          </a>
+          <a href="https://powerbi.microsoft.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-powerbi"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Power BI</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="web-crawler" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://scrapy.org/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-spider"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Scrapy</h3>
+            </div>
+          </a>
+          <a href="https://www.crummy.com/software/BeautifulSoup/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-soup"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Beautiful Soup</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="entertainment" class="tools-category-section" style="--n: 9">
+      <div class="category-header-container">
+        <h2 class="category-section-title">影音娱乐</h2>
+        <div class="subcategory-nav">
+          <ul>
+            <li><button class="subcategory-btn active" data-subcategory="video-platforms">视频平台</button></li>
+            <li><button class="subcategory-btn " data-subcategory="music-radio">音乐电台</button></li>
+            <li><button class="subcategory-btn " data-subcategory="gaming">游戏娱乐</button></li>
+            <li><button class="subcategory-btn " data-subcategory="tools-plugins">工具插件</button></li>
+          </ul>
+        </div>
+      </div>
+      <div id="video-platforms" class="subcategory-content active">
+        <div class="tools-grid">
+          <a href="https://www.bilibili.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-bilibili"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">哔哩哔哩</h3>
+            </div>
+          </a>
+          <a href="https://v.qq.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-tencent-video"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">腾讯视频</h3>
+            </div>
+          </a>
+          <a href="https://www.douyu.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-douyu"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">斗鱼</h3>
+            </div>
+          </a>
+          <a href="https://lpl.qq.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-lol"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">LPL赛事</h3>
+            </div>
+          </a>
+          <a href="https://m.youtube.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-youtube"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">YouTube</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="music-radio" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://music.163.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-netease-music"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">网易云音乐</h3>
+            </div>
+          </a>
+          <a href="https://y.qq.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-qq-music"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">QQ音乐</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="gaming" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://store.steampowered.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-steam"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Steam</h3>
+            </div>
+          </a>
+          <a href="https://start.qq.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-cloud-gaming"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">START云游戏</h3>
+            </div>
+          </a>
+          <a href="https://www.wegame.com.cn/home/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-wegame"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">WeGame</h3>
+            </div>
+          </a>
+          <a href="https://cg.163.com/#/mobile" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-netease-gaming"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">网易云游戏</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="tools-plugins" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.fandom.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-wiki"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Fandom</h3>
+            </div>
+          </a>
+          <a href="https://www.nexusmods.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-mod"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Nexus Mods</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="life-tools" class="tools-category-section" style="--n: 10">
+      <div class="category-header-container">
+        <h2 class="category-section-title">生活实用</h2>
+        <div class="subcategory-nav">
+          <ul>
+            <li><button class="subcategory-btn active" data-subcategory="online-shopping">网购消费</button></li>
+            <li><button class="subcategory-btn " data-subcategory="travel-navigation">出行导航</button></li>
+            <li><button class="subcategory-btn " data-subcategory="health-management">健康管理</button></li>
+            <li><button class="subcategory-btn " data-subcategory="finance">理财金融</button></li>
+          </ul>
+        </div>
+      </div>
+      <div id="online-shopping" class="subcategory-content active">
+        <div class="tools-grid">
+          <a href="https://www.taobao.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-taobao"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">淘宝</h3>
+            </div>
+          </a>
+          <a href="https://www.jd.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-jd"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">京东</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="travel-navigation" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.amap.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-amap"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">高德地图</h3>
+            </div>
+          </a>
+          <a href="https://map.baidu.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-baidu-map"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">百度地图</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="health-management" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.gotokeep.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-keep"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Keep</h3>
+            </div>
+          </a>
+          <a href="https://www.boohee.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-health"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">薄荷健康</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="finance" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.alipay.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-alipay"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">支付宝</h3>
+            </div>
+          </a>
+          <a href="https://pay.weixin.qq.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-wechat-pay"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">微信支付</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="web-resources" class="tools-category-section" style="--n: 11">
+      <div class="category-header-container">
+        <h2 class="category-section-title">网络资源</h2>
+        <div class="subcategory-nav">
+          <ul>
+            <li><button class="subcategory-btn active" data-subcategory="wallpaper-sites">在线壁纸</button></li>
+            <li><button class="subcategory-btn " data-subcategory="razer-resources">Razer资源</button></li>
+            <li><button class="subcategory-btn " data-subcategory="search-tools">资源搜索</button></li>
+            <li><button class="subcategory-btn " data-subcategory="online-tools">在线工具</button></li>
+            <li><button class="subcategory-btn " data-subcategory="community-forums">社区论坛</button></li>
+          </ul>
+        </div>
+      </div>
+      <div id="wallpaper-sites" class="subcategory-content active">
+        <div class="tools-grid">
+          <a href="https://www.uhdpaper.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-wallpaper"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">UHD Wallpapers</h3>
+            </div>
+          </a>
+          <a href="https://wallhaven.cc/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-wallhaven"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Wallhaven</h3>
+            </div>
+          </a>
+          <a href="https://www.wallpaperhub.app/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-wallpaperhub"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">WallpaperHub</h3>
+            </div>
+          </a>
+          <a href="https://unsplash.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-unsplash"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Unsplash</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="razer-resources" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://insider.razer.com/index.php" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-razer-forum"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">雷蛇内幕</h3>
+            </div>
+          </a>
+          <a href="http://cn.razerzone.com/?_ga=2.30944959.1804896537.1667057410-552163474.1666363849" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-razer"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">雷蛇官网</h3>
+            </div>
+          </a>
+          <a href="https://www.razer.com/pc/software" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-razer-software"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">雷蛇软件</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="search-tools" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.google.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-google"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">Google</h3>
+            </div>
+          </a>
+          <a href="https://www.baidu.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-baidu"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">百度</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="online-tools" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://fanyi.baidu.com/translate?aldtype=16047&query=&keyfrom=baidu&smartresult=dict&lang=auto2zh#auto/zh/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-translate"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">百度翻译</h3>
+            </div>
+          </a>
+          <a href="https://tinypng.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-compress"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">TinyPNG</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="community-forums" class="subcategory-content ">
+        <div class="tools-grid">
+          <a href="https://www.zhihu.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-zhihu"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">知乎</h3>
+            </div>
+          </a>
+          <a href="https://www.v2ex.com/" class="tool-item" target="_blank" rel="noopener">
+            <div class="tool-icon"><i class="iconfont icon-v2ex"></i></div>
+            <div class="tool-content">
+              <h3 class="tool-name">V2EX</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  'use strict';
+  
+  function init() {
+    var buttons = document.querySelectorAll('.subcategory-btn');
+    if (!buttons.length) return;
+    
+    buttons.forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        var targetId = this.getAttribute('data-subcategory');
+        if (!targetId) return;
+        
+        var section = this.closest('.tools-category-section');
+        if (!section) return;
+        
+        // 更新按钮状态
+        var siblingBtns = section.querySelectorAll('.subcategory-btn');
+        siblingBtns.forEach(function(b) {
+          b.classList.remove('active');
+        });
+        this.classList.add('active');
+        
+        // 切换内容
+        var allContents = section.querySelectorAll('.subcategory-content');
+        allContents.forEach(function(content) {
+          content.style.display = 'none';
+          content.classList.remove('active');
+        });
+        
+        var targetContent = document.getElementById(targetId);
+        if (targetContent) {
+          targetContent.style.display = 'block';
+          targetContent.classList.add('active');
+        }
+      });
+    });
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+  
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
+</article>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/subcategory-interaction.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

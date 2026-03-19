@@ -1,0 +1,901 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/sakura.png">
+  <link rel="icon" href="/img/sakura.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sakura">
+  <meta name="keywords" content="技术博客,Linux,Windows,AI工具,编程,学习笔记">
+  
+    <meta name="description" content="本教程详细讲解如何在Hexo博客中创建功能完整的个性化工具页面，包含分类导航、子分类切换、响应式布局和丰富的交互功能。通过四个核心文件的协同工作，实现配置集中管理、静态生成优化和现代化设计。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo个性化工具页面开发教程">
+<meta property="og:url" content="https://sakura-zl.github.io/2025/10/12/Hexo/Hexo%E4%B8%AA%E6%80%A7%E5%8C%96%E5%B7%A5%E5%85%B7%E9%A1%B5%E9%9D%A2%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Sakura">
+<meta property="og:description" content="本教程详细讲解如何在Hexo博客中创建功能完整的个性化工具页面，包含分类导航、子分类切换、响应式布局和丰富的交互功能。通过四个核心文件的协同工作，实现配置集中管理、静态生成优化和现代化设计。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-11T19:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-17T15:54:30.462Z">
+<meta property="article:author" content="Sakura">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="工具页面">
+<meta property="article:tag" content="静态网站">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Hexo个性化工具页面开发教程 - Sakura</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_5037651_57b9f0voppt.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/tools-grid.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"sakura-zl.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h2,h3,h4","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-10-10T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Sakura&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-archive"></i>
+                <span>文章</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/" target="_self">
+                    <i class="iconfont icon-categories"></i>
+                    <span>分类</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/" target="_self">
+                    <i class="iconfont icon-tags"></i>
+                    <span>标签</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/" target="_self">
+                    <i class="iconfont icon-articles"></i>
+                    <span>归档</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-tool-fill"></i>
+                <span>工具</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/oneself/" target="_self">
+                    <i class="iconfont icon-function_oneself"></i>
+                    <span>个人</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/windows/" target="_self">
+                    <i class="iconfont icon-windows"></i>
+                    <span>Windows</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/linux/" target="_self">
+                    <i class="iconfont icon-linux"></i>
+                    <span>Linux</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/macos/" target="_self">
+                    <i class="iconfont icon-ios"></i>
+                    <span>macOS</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-about"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default_xm.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Hexo个性化工具页面开发教程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Sakura
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-12 03:00" pubdate>
+          2025年10月12日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          44 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Hexo个性化工具页面开发教程</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Hexo个性化工具页面开发教程"><a href="#Hexo个性化工具页面开发教程" class="headerlink" title="Hexo个性化工具页面开发教程"></a>Hexo个性化工具页面开发教程</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本教程将详细介绍如何在Hexo博客中创建一个功能完整的个性化工具页面。这个页面采用现代化的设计，包含分类导航、子分类切换、响应式布局和丰富的交互功能。</p>
+<h2 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h2><p>整个工具页面系统由四个核心文件组成：</p>
+<ol>
+<li><strong>页面模板</strong> (<code>source/oneself/index.md</code>) - 包含配置数据和页面结构</li>
+<li><strong>生成器脚本</strong> (<code>scripts/tools-generator.js</code>) - 处理静态页面生成</li>
+<li><strong>样式文件</strong> (<code>source/css/tools-grid.css</code>) - 定义页面样式和布局</li>
+<li><strong>交互脚本</strong> (<code>source/js/subcategory-interaction.js</code>) - 处理用户交互</li>
+</ol>
+<h2 id="详细实现"><a href="#详细实现" class="headerlink" title="详细实现"></a>详细实现</h2><h3 id="1-页面模板配置"><a href="#1-页面模板配置" class="headerlink" title="1. 页面模板配置"></a>1. 页面模板配置</h3><p>首先创建页面模板文件，将工具配置数据直接嵌入到Front Matter中：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">工具</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2025-10-11 18:00:00</span><br><span class="hljs-attr">type:</span> <span class="hljs-string">&quot;oneself&quot;</span><br><span class="hljs-attr">updated:</span> <span class="hljs-number">2025-10-11 19:00:00</span><br><span class="hljs-attr">tools_config:</span><br>  <span class="hljs-attr">categories:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">&quot;代码仓库&quot;</span><br>      <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;代码仓库&quot;</span><br>      <span class="hljs-attr">subcategories:</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">&quot;主流仓库&quot;</span><br>          <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;主流仓库&quot;</span><br>          <span class="hljs-attr">tools:</span><br>            <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;GitHub&quot;</span><br>              <span class="hljs-attr">url:</span> <span class="hljs-string">&quot;https://github.com/&quot;</span><br>              <span class="hljs-attr">icon:</span> <span class="hljs-string">&quot;icon-github&quot;</span><br>            <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;GitLab&quot;</span><br>              <span class="hljs-attr">url:</span> <span class="hljs-string">&quot;https://gitlab.com/&quot;</span><br>              <span class="hljs-attr">icon:</span> <span class="hljs-string">&quot;icon-gitlab-fill&quot;</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">&quot;其他仓库&quot;</span><br>          <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;其他仓库&quot;</span><br>          <span class="hljs-attr">tools:</span><br>            <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;Gitee&quot;</span><br>              <span class="hljs-attr">url:</span> <span class="hljs-string">&quot;https://gitee.com/&quot;</span><br>              <span class="hljs-attr">icon:</span> <span class="hljs-string">&quot;icon-gitee-fill&quot;</span><br>            <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;Bitbucket&quot;</span><br>              <span class="hljs-attr">url:</span> <span class="hljs-string">&quot;https://bitbucket.org/&quot;</span><br>              <span class="hljs-attr">icon:</span> <span class="hljs-string">&quot;icon-bitbucket-fill&quot;</span><br>    <span class="hljs-comment"># 更多分类...</span><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>配置结构说明：</strong></p>
+<ul>
+<li><strong>categories</strong>: 主分类数组，每个分类包含：<ul>
+<li><code>id</code>: 分类唯一标识符</li>
+<li><code>name</code>: 分类显示名称</li>
+<li><code>subcategories</code>: 子分类数组</li>
+</ul>
+</li>
+<li><strong>subcategories</strong>: 子分类数组，每个子分类包含：<ul>
+<li><code>id</code>: 子分类唯一标识符</li>
+<li><code>name</code>: 子分类显示名称</li>
+<li><code>tools</code>: 工具项数组</li>
+</ul>
+</li>
+<li><strong>tools</strong>: 工具项数组，每个工具包含：<ul>
+<li><code>name</code>: 工具名称</li>
+<li><code>url</code>: 工具链接</li>
+<li><code>icon</code>: 图标类名</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-生成器脚本"><a href="#2-生成器脚本" class="headerlink" title="2. 生成器脚本"></a>2. 生成器脚本</h3><p>创建Hexo生成器脚本，负责在构建时生成静态页面：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);<br><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);<br><span class="hljs-keyword">const</span> yaml = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;js-yaml&#x27;</span>);<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Hexo工具页面生成器</span><br><span class="hljs-comment"> * 在hexo generate时从页面Front Matter中读取工具配置并生成静态页面</span><br><span class="hljs-comment"> * 自动读取页面模板的Front Matter配置（包含工具数据）</span><br><span class="hljs-comment"> */</span><br>hexo.<span class="hljs-property">extend</span>.<span class="hljs-property">generator</span>.<span class="hljs-title function_">register</span>(<span class="hljs-string">&#x27;tools-page&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">locals</span>) &#123;<br>  <span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-comment">// 读取页面模板的Front Matter配置</span><br>    <span class="hljs-keyword">const</span> pageTemplatePath = path.<span class="hljs-title function_">join</span>(hexo.<span class="hljs-property">source_dir</span>, <span class="hljs-string">&#x27;oneself&#x27;</span>, <span class="hljs-string">&#x27;index.md&#x27;</span>);<br>    <span class="hljs-keyword">if</span> (!fs.<span class="hljs-title function_">existsSync</span>(pageTemplatePath)) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">warn</span>(<span class="hljs-string">&#x27;页面模板文件不存在:&#x27;</span>, pageTemplatePath);<br>      <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <br>    <span class="hljs-keyword">const</span> pageTemplateContent = fs.<span class="hljs-title function_">readFileSync</span>(pageTemplatePath, <span class="hljs-string">&#x27;utf8&#x27;</span>);<br>    <span class="hljs-keyword">const</span> frontMatter = <span class="hljs-title function_">parseFrontMatter</span>(pageTemplateContent);<br>    <br>    <span class="hljs-comment">// 从Front Matter中读取工具配置</span><br>    <span class="hljs-keyword">if</span> (!frontMatter.<span class="hljs-property">tools_config</span> || !frontMatter.<span class="hljs-property">tools_config</span>.<span class="hljs-property">categories</span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">warn</span>(<span class="hljs-string">&#x27;工具配置数据不存在或格式不正确&#x27;</span>);<br>      <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 生成工具页面的HTML内容</span><br>    <span class="hljs-keyword">const</span> htmlContent = <span class="hljs-title function_">generateToolsPage</span>(frontMatter.<span class="hljs-property">tools_config</span>.<span class="hljs-property">categories</span>);<br>    <br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;oneself/index.html&#x27;</span>,<br>      <span class="hljs-attr">data</span>: &#123;<br>        ...locals,<br>        <span class="hljs-attr">content</span>: htmlContent,<br>        <span class="hljs-attr">layout</span>: <span class="hljs-string">&#x27;page&#x27;</span>,<br>        <span class="hljs-attr">title</span>: frontMatter.<span class="hljs-property">title</span>,<br>        <span class="hljs-attr">type</span>: frontMatter.<span class="hljs-property">type</span>,<br>        <span class="hljs-attr">date</span>: frontMatter.<span class="hljs-property">date</span>,<br>        <span class="hljs-attr">updated</span>: frontMatter.<span class="hljs-property">updated</span><br>      &#125;,<br>      <span class="hljs-attr">layout</span>: [<span class="hljs-string">&#x27;page&#x27;</span>]<br>    &#125;;<br>  &#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;工具页面生成器错误:&#x27;</span>, error);<br>    <span class="hljs-keyword">return</span>;<br>  &#125;<br>&#125;);<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 解析Front Matter配置</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">string</span>&#125; content 文件内容</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@returns</span> &#123;<span class="hljs-type">Object</span>&#125; Front Matter对象</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">parseFrontMatter</span>(<span class="hljs-params">content</span>) &#123;<br>  <span class="hljs-keyword">let</span> frontMatter = &#123;&#125;;<br>  <br>  <span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-comment">// 匹配Front Matter块</span><br>    <span class="hljs-keyword">const</span> frontMatterMatch = content.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/^---\s*\n([\s\S]*?)\n---/</span>);<br>    <span class="hljs-keyword">if</span> (frontMatterMatch) &#123;<br>      <span class="hljs-keyword">const</span> frontMatterContent = frontMatterMatch[<span class="hljs-number">1</span>];<br>      <br>      <span class="hljs-comment">// 使用js-yaml解析完整的Front Matter内容</span><br>      <span class="hljs-keyword">const</span> parsedFrontMatter = yaml.<span class="hljs-title function_">load</span>(frontMatterContent);<br>      <br>      <span class="hljs-keyword">if</span> (parsedFrontMatter) &#123;<br>        frontMatter = parsedFrontMatter;<br>      &#125;<br>    &#125;<br>  &#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">warn</span>(<span class="hljs-string">&#x27;Front Matter解析失败:&#x27;</span>, error);<br>  &#125;<br>  <br>  <span class="hljs-keyword">return</span> frontMatter;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 生成工具页面的HTML内容</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">Array</span>&#125; categories 分类数据</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@returns</span> &#123;<span class="hljs-type">string</span>&#125; HTML内容</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">generateToolsPage</span>(<span class="hljs-params">categories</span>) &#123;<br>  <span class="hljs-keyword">let</span> contentHTML = <span class="hljs-string">`</span><br><span class="hljs-string">&lt;!-- 主布局容器 - 左右分栏布局 --&gt;</span><br><span class="hljs-string">&lt;div class=&quot;tools-layout-container&quot;&gt;</span><br><span class="hljs-string"></span><br><span class="hljs-string">&lt;!-- 左侧分类导航区域 --&gt;</span><br><span class="hljs-string">&lt;div class=&quot;tools-categories-nav&quot;&gt;</span><br><span class="hljs-string">  &lt;ul class=&quot;categories-list&quot; id=&quot;categories-nav-list&quot;&gt;</span><br><span class="hljs-string">`</span>;<br><br>  <span class="hljs-comment">// 生成左侧导航</span><br>  categories.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">category, index</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> isFirstCategory = index === <span class="hljs-number">0</span>;<br>    contentHTML += <span class="hljs-string">`</span><br><span class="hljs-string">    &lt;li class=&quot;category-nav-item&quot;&gt;</span><br><span class="hljs-string">      &lt;a href=&quot;#<span class="hljs-subst">$&#123;category.id&#125;</span>&quot; class=&quot;category-nav-link <span class="hljs-subst">$&#123;isFirstCategory ? <span class="hljs-string">&#x27;active&#x27;</span> : <span class="hljs-string">&#x27;&#x27;</span>&#125;</span>&quot;&gt;<span class="hljs-subst">$&#123;category.name&#125;</span>&lt;/a&gt;</span><br><span class="hljs-string">    &lt;/li&gt;</span><br><span class="hljs-string">`</span>;<br>  &#125;);<br><br>  contentHTML += <span class="hljs-string">`</span><br><span class="hljs-string">  &lt;/ul&gt;</span><br><span class="hljs-string">&lt;/div&gt;</span><br><span class="hljs-string"></span><br><span class="hljs-string">&lt;!-- 右侧工具内容区域 --&gt;</span><br><span class="hljs-string">&lt;div class=&quot;tools-content&quot; id=&quot;tools-content&quot;&gt;</span><br><span class="hljs-string">`</span>;<br><br>  <span class="hljs-comment">// 生成工具内容</span><br>  categories.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">category, index</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> isFirstCategory = index === <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">const</span> categoryIndex = index + <span class="hljs-number">1</span>; <span class="hljs-comment">// CSS变量从1开始</span><br>    <br>    contentHTML += <span class="hljs-string">`</span><br><span class="hljs-string">  &lt;div id=&quot;<span class="hljs-subst">$&#123;category.id&#125;</span>&quot; class=&quot;tools-category-section&quot; style=&quot;--n: <span class="hljs-subst">$&#123;categoryIndex&#125;</span>&quot;&gt;</span><br><span class="hljs-string">    &lt;div class=&quot;category-header-container&quot;&gt;</span><br><span class="hljs-string">      &lt;h2 class=&quot;category-section-title&quot;&gt;<span class="hljs-subst">$&#123;category.name&#125;</span>&lt;/h2&gt;</span><br><span class="hljs-string">      &lt;div class=&quot;subcategory-nav&quot;&gt;</span><br><span class="hljs-string">        &lt;ul&gt;</span><br><span class="hljs-string">`</span>;<br><br>    <span class="hljs-comment">// 生成子分类导航</span><br>    category.<span class="hljs-property">subcategories</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">subcategory, subIndex</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">const</span> isFirstSubcategory = subIndex === <span class="hljs-number">0</span>;<br>      contentHTML += <span class="hljs-string">`</span><br><span class="hljs-string">          &lt;li&gt;&lt;button class=&quot;subcategory-btn <span class="hljs-subst">$&#123;isFirstSubcategory ? <span class="hljs-string">&#x27;active&#x27;</span> : <span class="hljs-string">&#x27;&#x27;</span>&#125;</span>&quot; data-subcategory=&quot;<span class="hljs-subst">$&#123;subcategory.id&#125;</span>&quot;&gt;<span class="hljs-subst">$&#123;subcategory.name&#125;</span>&lt;/button&gt;&lt;/li&gt;</span><br><span class="hljs-string">`</span>;<br>    &#125;);<br><br>    contentHTML += <span class="hljs-string">`</span><br><span class="hljs-string">        &lt;/ul&gt;</span><br><span class="hljs-string">      &lt;/div&gt;</span><br><span class="hljs-string">    &lt;/div&gt;</span><br><span class="hljs-string">`</span>;<br><br>    <span class="hljs-comment">// 生成子分类内容</span><br>    category.<span class="hljs-property">subcategories</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">subcategory, subIndex</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">const</span> isFirstSubcategory = subIndex === <span class="hljs-number">0</span>;<br>      contentHTML += <span class="hljs-string">`</span><br><span class="hljs-string">    &lt;div id=&quot;<span class="hljs-subst">$&#123;subcategory.id&#125;</span>&quot; class=&quot;subcategory-content <span class="hljs-subst">$&#123;isFirstSubcategory ? <span class="hljs-string">&#x27;active&#x27;</span> : <span class="hljs-string">&#x27;&#x27;</span>&#125;</span>&quot;&gt;</span><br><span class="hljs-string">      &lt;div class=&quot;tools-grid&quot;&gt;</span><br><span class="hljs-string">`</span>;<br><br>      <span class="hljs-comment">// 生成工具项</span><br>      subcategory.<span class="hljs-property">tools</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">tool</span> =&gt;</span> &#123;<br>        contentHTML += <span class="hljs-string">`</span><br><span class="hljs-string">        &lt;a href=&quot;<span class="hljs-subst">$&#123;tool.url&#125;</span>&quot; class=&quot;tool-item&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;</span><br><span class="hljs-string">          &lt;div class=&quot;tool-icon&quot;&gt;&lt;i class=&quot;iconfont <span class="hljs-subst">$&#123;tool.icon&#125;</span>&quot;&gt;&lt;/i&gt;&lt;/div&gt;</span><br><span class="hljs-string">          &lt;div class=&quot;tool-content&quot;&gt;</span><br><span class="hljs-string">            &lt;h3 class=&quot;tool-name&quot;&gt;<span class="hljs-subst">$&#123;tool.name&#125;</span>&lt;/h3&gt;</span><br><span class="hljs-string">          &lt;/div&gt;</span><br><span class="hljs-string">        &lt;/a&gt;</span><br><span class="hljs-string">`</span>;<br>      &#125;);<br><br>      contentHTML += <span class="hljs-string">`</span><br><span class="hljs-string">      &lt;/div&gt;</span><br><span class="hljs-string">    &lt;/div&gt;</span><br><span class="hljs-string">`</span>;<br>    &#125;);<br><br>    contentHTML += <span class="hljs-string">`</span><br><span class="hljs-string">  &lt;/div&gt;</span><br><span class="hljs-string">`</span>;<br>  &#125;);<br><br>  contentHTML += <span class="hljs-string">`</span><br><span class="hljs-string">&lt;/div&gt;</span><br><span class="hljs-string"></span><br><span class="hljs-string">&lt;/div&gt;</span><br><span class="hljs-string"></span><br><span class="hljs-string">&lt;!-- 加载工具交互脚本 --&gt;</span><br><span class="hljs-string">&lt;!-- &lt;script src=&quot;/js/subcategory-interaction.js&quot;&gt;&lt;/script&gt; --&gt;</span><br><span class="hljs-string">`</span>;<br><br>  <span class="hljs-keyword">return</span> contentHTML;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>生成器脚本核心功能：</strong></p>
+<ol>
+<li><strong>注册生成器</strong>: 使用 <code>hexo.extend.generator.register()</code> 注册自定义生成器</li>
+<li><strong>配置解析</strong>: 解析页面模板中的Front Matter配置</li>
+<li><strong>HTML生成</strong>: 根据配置数据动态生成HTML结构</li>
+<li><strong>错误处理</strong>: 完善的错误处理和日志记录</li>
+</ol>
+<h3 id="3-样式文件"><a href="#3-样式文件" class="headerlink" title="3. 样式文件"></a>3. 样式文件</h3><p>创建完整的CSS样式文件，定义页面的视觉表现：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 工具网格布局样式</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 定义工具分类页面的整体布局和组件样式</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 主要功能模块：</span><br><span class="hljs-comment"> * 1. 主布局系统 - 左右分栏布局</span><br><span class="hljs-comment"> * 2. 分类导航 - 左侧粘性导航栏</span><br><span class="hljs-comment"> * 3. 工具网格 - 4列响应式网格布局</span><br><span class="hljs-comment"> * 4. 子分类系统 - 子分类导航和内容切换</span><br><span class="hljs-comment"> * 5. 响应式设计 - 多设备适配</span><br><span class="hljs-comment"> * 6. 暗色模式支持 - 主题切换适配</span><br><span class="hljs-comment"> * 7. 动画效果 - 入场动画和交互反馈</span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-comment">/* ===== 主布局样式 ===== */</span><br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 工具布局容器</span><br><span class="hljs-comment"> * 采用左右分栏布局，左侧导航，右侧内容</span><br><span class="hljs-comment"> */</span><br><span class="hljs-selector-class">.tools-layout-container</span> &#123;<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-attribute">gap</span>: <span class="hljs-number">30px</span>;<br>  <span class="hljs-attribute">margin</span>: <span class="hljs-number">40px</span> <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">min-height</span>: <span class="hljs-number">600px</span>;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 左侧分类导航</span><br><span class="hljs-comment"> * 固定宽度1/6，支持粘性定位和滚动</span><br><span class="hljs-comment"> */</span><br><span class="hljs-selector-class">.tools-categories-nav</span> &#123;<br>  <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span>;<br>  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">16.67%</span>;<br>  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--board-color);<br>  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">8px</span>;<br>  <span class="hljs-attribute">padding</span>: <span class="hljs-number">15px</span>;<br>  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">2px</span> <span class="hljs-number">10px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.05</span>);<br>  <span class="hljs-attribute">position</span>: sticky;<br>  <span class="hljs-attribute">top</span>: <span class="hljs-number">80px</span>; <span class="hljs-comment">/* 距离顶部80px开始冻结 */</span><br>  <span class="hljs-attribute">height</span>: fit-content;<br>  <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">5px</span>;<br>  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">5px</span>;<br>  <span class="hljs-attribute">z-index</span>: <span class="hljs-number">1</span>;<br>  <span class="hljs-attribute">max-height</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">100vh</span> - <span class="hljs-number">120px</span>); <span class="hljs-comment">/* 限制最大高度 */</span><br>  <span class="hljs-attribute">overflow-y</span>: auto; <span class="hljs-comment">/* 内容过多时可滚动 */</span><br>&#125;<br><br><span class="hljs-selector-class">.categories-list</span> &#123;<br>  <span class="hljs-attribute">list-style</span>: none;<br>  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-selector-class">.category-nav-item</span> &#123;<br>  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">8px</span>;<br>&#125;<br><br><span class="hljs-selector-class">.category-nav-link</span> &#123;<br>  <span class="hljs-attribute">display</span>: block;<br>  <span class="hljs-attribute">padding</span>: <span class="hljs-number">8px</span> <span class="hljs-number">12px</span>;<br>  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--body-bg-color);<br>  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">8px</span>;<br>  <span class="hljs-attribute">text-decoration</span>: none;<br>  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-color);<br>  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">500</span>;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.95em</span>;<br>  <span class="hljs-attribute">transition</span>: all <span class="hljs-number">0.3s</span> ease;<br>  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--line-color);<br>  <span class="hljs-attribute">white-space</span>: nowrap; <span class="hljs-comment">/* 防止文字换行 */</span><br>  <span class="hljs-attribute">text-align</span>: center;<br>&#125;<br><br><span class="hljs-selector-class">.category-nav-link</span><span class="hljs-selector-pseudo">:hover</span>,<br><span class="hljs-selector-class">.category-nav-link</span><span class="hljs-selector-class">.active</span> &#123;<br>  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--link-hover-bg-color);<br>  <span class="hljs-attribute">color</span>: <span class="hljs-number">#3c4858</span>;<br>  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#3c4858</span>;<br>&#125;<br><br><span class="hljs-selector-class">.category-nav-link</span><span class="hljs-selector-class">.active</span> &#123;<br>  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 右侧工具内容区域</span><br><span class="hljs-comment"> * 占据5/6宽度，支持滚动边距</span><br><span class="hljs-comment"> */</span><br><span class="hljs-selector-class">.tools-content</span> &#123;<br>  <span class="hljs-attribute">flex</span>: <span class="hljs-number">5</span>;<br>  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">83.33%</span>;<br>  <span class="hljs-attribute">scroll-margin-top</span>: <span class="hljs-number">80px</span>; <span class="hljs-comment">/* 与左侧导航冻结位置保持一致 */</span><br>&#125;<br><br><span class="hljs-comment">/* ===== 分类区域样式 ===== */</span><br><br><span class="hljs-selector-class">.tools-category-section</span> &#123;<br>  <span class="hljs-attribute">background</span>: transparent;<br>  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">8px</span>;<br>  <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>;<br>  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--line-color);<br>  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">16px</span>;<br>  <span class="hljs-attribute">scroll-margin-top</span>: <span class="hljs-number">80px</span>;<br>  <span class="hljs-attribute">isolation</span>: isolate; <span class="hljs-comment">/* 创建新的堆叠上下文 */</span><br>  <span class="hljs-attribute">animation</span>: fadeInUp <span class="hljs-number">0.6s</span> ease forwards; <span class="hljs-comment">/* 入场动画 */</span><br>&#125;<br><br><span class="hljs-selector-class">.category-header-container</span> &#123;<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-attribute">align-items</span>: center;<br>  <span class="hljs-attribute">justify-content</span>: flex-start;<br>  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">16px</span>;<br>  <span class="hljs-attribute">gap</span>: <span class="hljs-number">16px</span>;<br>  <span class="hljs-attribute">flex-wrap</span>: wrap;<br>&#125;<br><br><span class="hljs-selector-class">.category-section-title</span> &#123;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.1em</span>;<br>  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">700</span>;<br>  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--post-heading-color);<br>  <span class="hljs-attribute">padding</span>: <span class="hljs-number">8px</span> <span class="hljs-number">16px</span>;<br>  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/* ===== 工具网格样式 ===== */</span><br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 工具网格布局</span><br><span class="hljs-comment"> * 4列网格布局，支持响应式调整</span><br><span class="hljs-comment"> */</span><br><span class="hljs-selector-class">.tools-grid</span> &#123;<br>  <span class="hljs-attribute">display</span>: grid;<br>  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">4</span>, <span class="hljs-number">1</span>fr);<br>  <span class="hljs-attribute">gap</span>: <span class="hljs-number">16px</span>;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 工具项卡片</span><br><span class="hljs-comment"> * 统一高度和样式的工具卡片</span><br><span class="hljs-comment"> */</span><br><span class="hljs-selector-class">.tool-item</span> &#123;<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-attribute">align-items</span>: center;<br>  <span class="hljs-attribute">padding</span>: <span class="hljs-number">8px</span> <span class="hljs-number">12px</span>;<br>  <span class="hljs-attribute">background</span>: transparent;<br>  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">8px</span>;<br>  <span class="hljs-attribute">text-decoration</span>: none;<br>  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-color);<br>  <span class="hljs-attribute">transition</span>: all <span class="hljs-number">0.3s</span> ease;<br>  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--line-color);<br>  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">2px</span> <span class="hljs-number">8px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.06</span>);<br>  <span class="hljs-attribute">text-align</span>: left;<br>  <span class="hljs-attribute">height</span>: <span class="hljs-number">40px</span>; <span class="hljs-comment">/* 统一卡片高度 */</span><br>  <span class="hljs-attribute">min-height</span>: <span class="hljs-number">40px</span>; <span class="hljs-comment">/* 确保最小高度一致 */</span><br>  <span class="hljs-attribute">z-index</span>: <span class="hljs-number">1</span>;<br>  <span class="hljs-attribute">position</span>: relative; <span class="hljs-comment">/* 为悬停箭头提供定位上下文 */</span><br>&#125;<br><br><span class="hljs-selector-class">.tool-item</span><span class="hljs-selector-pseudo">:hover</span> &#123;<br>  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--link-hover-bg-color);<br>  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#3c4858</span>;<br>  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">4px</span> <span class="hljs-number">12px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.1</span>);<br>  <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">24px</span>; <span class="hljs-comment">/* 为箭头留出空间 */</span><br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 工具图标样式</span><br><span class="hljs-comment"> */</span><br><span class="hljs-selector-class">.tool-icon</span> &#123;<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-attribute">align-items</span>: center;<br>  <span class="hljs-attribute">justify-content</span>: center;<br>  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">12px</span>;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.5em</span>;<br>  <span class="hljs-attribute">color</span>: <span class="hljs-number">#3c4858</span>;<br>  <span class="hljs-attribute">min-width</span>: <span class="hljs-number">24px</span>;<br>&#125;<br><br><span class="hljs-selector-class">.tool-content</span> &#123;<br>  <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span>;<br>  <span class="hljs-attribute">min-width</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-attribute">flex-direction</span>: column;<br>  <span class="hljs-attribute">justify-content</span>: center;<br>  <span class="hljs-attribute">position</span>: static;<br>&#125;<br><br><span class="hljs-selector-class">.tool-name</span> &#123;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.85em</span>;<br>  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;<br>  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--post-heading-color);<br>  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.2</span>;<br>  <span class="hljs-attribute">text-align</span>: left;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 工具卡片悬停时显示箭头</span><br><span class="hljs-comment"> */</span><br><span class="hljs-selector-class">.tool-item</span><span class="hljs-selector-pseudo">:hover</span><span class="hljs-selector-pseudo">::after</span> &#123;<br>  <span class="hljs-attribute">content</span>: <span class="hljs-string">&#x27;➔&#x27;</span>;<br>  <span class="hljs-attribute">position</span>: absolute;<br>  <span class="hljs-attribute">right</span>: <span class="hljs-number">12px</span>;<br>  <span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;<br>  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateY</span>(-<span class="hljs-number">50%</span>);<br>  <span class="hljs-attribute">color</span>: <span class="hljs-number">#3c4858</span>;<br>  <span class="hljs-attribute">font-weight</span>: normal;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.1em</span>;<br>  <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0.8</span>;<br>  <span class="hljs-attribute">transition</span>: all <span class="hljs-number">0.3s</span> ease;<br>&#125;<br><br><span class="hljs-comment">/* ===== 子分类导航样式 ===== */</span><br><br><span class="hljs-selector-class">.subcategory-nav</span> &#123;<br>  <span class="hljs-attribute">display</span>: inline-flex;<br>  <span class="hljs-attribute">align-items</span>: center;<br>  <span class="hljs-attribute">gap</span>: <span class="hljs-number">8px</span>;<br>  <span class="hljs-attribute">padding</span>: <span class="hljs-number">8px</span> <span class="hljs-number">12px</span>;<br>  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--body-bg-color);<br>  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">8px</span>;<br>  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--line-color);<br>  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">2px</span> <span class="hljs-number">6px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.06</span>);<br>  <span class="hljs-attribute">height</span>: <span class="hljs-number">42px</span>; <span class="hljs-comment">/* 统一高度 */</span><br>  <span class="hljs-attribute">min-height</span>: <span class="hljs-number">42px</span>; <span class="hljs-comment">/* 确保最小高度一致 */</span><br>  <span class="hljs-attribute">z-index</span>: <span class="hljs-number">1</span>;<br>  <span class="hljs-attribute">position</span>: relative;<br>  <span class="hljs-attribute">isolation</span>: isolate; <span class="hljs-comment">/* 创建独立的堆叠上下文 */</span><br>&#125;<br><br><span class="hljs-selector-class">.subcategory-nav</span> <span class="hljs-selector-tag">ul</span> &#123;<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-attribute">list-style</span>: none;<br>  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">gap</span>: <span class="hljs-number">8px</span>;<br>  <span class="hljs-attribute">overflow-x</span>: auto;<br>  <span class="hljs-attribute">white-space</span>: nowrap;<br>  <span class="hljs-attribute">scrollbar-width</span>: none;<br>  -ms-<span class="hljs-attribute">overflow</span>-style: none;<br>&#125;<br><br><span class="hljs-selector-class">.subcategory-nav</span> <span class="hljs-selector-tag">ul</span>::-webkit-scrollbar &#123;<br>  <span class="hljs-attribute">display</span>: none;<br>&#125;<br><br><span class="hljs-selector-class">.subcategory-btn</span> &#123;<br>  <span class="hljs-attribute">padding</span>: <span class="hljs-number">6px</span> <span class="hljs-number">12px</span>;<br>  <span class="hljs-attribute">background</span>: transparent;<br>  <span class="hljs-attribute">border</span>: none;<br>  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-color);<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.85em</span>;<br>  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">500</span>;<br>  <span class="hljs-attribute">cursor</span>: pointer;<br>  <span class="hljs-attribute">transition</span>: all <span class="hljs-number">0.3s</span> ease;<br>  <span class="hljs-attribute">position</span>: relative;<br>  <span class="hljs-attribute">overflow</span>: hidden;<br>  <span class="hljs-attribute">white-space</span>: nowrap;<br>  <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-selector-class">.subcategory-btn</span><span class="hljs-selector-pseudo">:hover</span> &#123;<br>  <span class="hljs-attribute">background</span>: transparent;<br>  <span class="hljs-attribute">color</span>: <span class="hljs-number">#3c4858</span>;<br>  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateY</span>(-<span class="hljs-number">1px</span>);<br>&#125;<br><br><span class="hljs-selector-class">.subcategory-btn</span><span class="hljs-selector-class">.active</span> &#123;<br>  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--link-hover-bg-color);<br>  <span class="hljs-attribute">color</span>: <span class="hljs-number">#3c4858</span>;<br>  <span class="hljs-attribute">border</span>: none;<br>  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">6px</span>;<br>  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;<br>  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">2px</span> <span class="hljs-number">8px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.12</span>);<br>  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateY</span>(-<span class="hljs-number">2px</span>);<br>&#125;<br><br><span class="hljs-selector-class">.subcategory-content</span> &#123;<br>  <span class="hljs-attribute">display</span>: none;<br>  <span class="hljs-attribute">animation</span>: fadeInUp <span class="hljs-number">0.4s</span> ease forwards;<br>&#125;<br><br><span class="hljs-selector-class">.subcategory-content</span><span class="hljs-selector-class">.active</span> &#123;<br>  <span class="hljs-attribute">display</span>: block;<br>&#125;<br><br><span class="hljs-comment">/* ===== 响应式设计 ===== */</span><br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 平板设备适配 (1024px及以下)</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">@media</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">1024px</span>) &#123;<br>  <span class="hljs-selector-class">.tools-layout-container</span> &#123;<br>    <span class="hljs-attribute">flex-direction</span>: column;<br>    <span class="hljs-attribute">gap</span>: <span class="hljs-number">20px</span>;<br>  &#125;<br>  <br>  <span class="hljs-selector-class">.tools-categories-nav</span>,<br>  <span class="hljs-selector-class">.tools-content</span> &#123;<br>    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;<br>  &#125;<br>  <br>  <span class="hljs-selector-class">.tools-categories-nav</span> &#123;<br>    <span class="hljs-attribute">position</span>: static;<br>  &#125;<br>  <br>  <span class="hljs-selector-class">.categories-list</span> &#123;<br>    <span class="hljs-attribute">display</span>: grid;<br>    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(auto-fit, <span class="hljs-built_in">minmax</span>(<span class="hljs-number">200px</span>, <span class="hljs-number">1</span>fr));<br>    <span class="hljs-attribute">gap</span>: <span class="hljs-number">10px</span>;<br>  &#125;<br>  <br>  <span class="hljs-selector-class">.category-nav-item</span> &#123;<br>    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 移动设备适配 (768px及以下)</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">@media</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">768px</span>) &#123;<br>  <span class="hljs-selector-class">.tools-layout-container</span> &#123;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">30px</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">gap</span>: <span class="hljs-number">16px</span>;<br>  &#125;<br>  <br>  <span class="hljs-selector-class">.tools-categories-nav</span>,<br>  <span class="hljs-selector-class">.tools-category-section</span> &#123;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">16px</span>;<br>  &#125;<br>  <br>  <span class="hljs-selector-class">.tools-grid</span> &#123;<br>    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>fr);<br>    <span class="hljs-attribute">gap</span>: <span class="hljs-number">10px</span>;<br>  &#125;<br>  <br>  <span class="hljs-selector-class">.tool-item</span> &#123;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">6px</span>;<br>    <span class="hljs-attribute">gap</span>: <span class="hljs-number">6px</span>;<br>  &#125;<br>  <br>  <span class="hljs-selector-class">.tool-icon</span> &#123;<br>    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">8px</span>;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.2em</span>;<br>    <span class="hljs-attribute">min-width</span>: <span class="hljs-number">20px</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 小屏幕设备适配 (480px及以下)</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">@media</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">480px</span>) &#123;<br>  <span class="hljs-selector-class">.tools-categories-nav</span>,<br>  <span class="hljs-selector-class">.tools-category-section</span> &#123;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">12px</span>;<br>  &#125;<br>  <br>  <span class="hljs-selector-class">.tool-item</span> &#123;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">8px</span>;<br>    <span class="hljs-attribute">flex-direction</span>: row;<br>    <span class="hljs-attribute">text-align</span>: left;<br>    <span class="hljs-attribute">gap</span>: <span class="hljs-number">8px</span>;<br>  &#125;<br>  <br>  <span class="hljs-selector-class">.tool-icon</span> &#123;<br>    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">18px</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">18px</span>;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.9em</span>;<br>  &#125;<br>  <br>  <span class="hljs-selector-class">.categories-list</span> &#123;<br>    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">1</span>fr;<br>  &#125;<br>  <br>  <span class="hljs-selector-class">.tools-grid</span> &#123;<br>    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>fr);<br>    <span class="hljs-attribute">gap</span>: <span class="hljs-number">8px</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">/* ===== 暗色模式支持 ===== */</span><br><br><span class="hljs-selector-attr">[data-user-color-scheme=<span class="hljs-string">&quot;dark&quot;</span>]</span> <span class="hljs-selector-class">.tools-categories-nav</span>,<br><span class="hljs-selector-attr">[data-user-color-scheme=<span class="hljs-string">&quot;dark&quot;</span>]</span> <span class="hljs-selector-class">.tools-category-section</span> &#123;<br>  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--board-color-dark);<br>  <span class="hljs-attribute">border-color</span>: <span class="hljs-built_in">var</span>(--line-color-dark);<br>  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">4px</span> <span class="hljs-number">20px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.2</span>);<br>&#125;<br><br><span class="hljs-selector-attr">[data-user-color-scheme=<span class="hljs-string">&quot;dark&quot;</span>]</span> <span class="hljs-selector-class">.category-nav-link</span>,<br><span class="hljs-selector-attr">[data-user-color-scheme=<span class="hljs-string">&quot;dark&quot;</span>]</span> <span class="hljs-selector-class">.tool-item</span> &#123;<br>  <span class="hljs-attribute">background</span>: transparent;<br>  <span class="hljs-attribute">border-color</span>: <span class="hljs-built_in">var</span>(--line-color-dark);<br>&#125;<br><br><span class="hljs-selector-attr">[data-user-color-scheme=<span class="hljs-string">&quot;dark&quot;</span>]</span> <span class="hljs-selector-class">.tools-category-section</span><span class="hljs-selector-pseudo">:hover</span>,<br><span class="hljs-selector-attr">[data-user-color-scheme=<span class="hljs-string">&quot;dark&quot;</span>]</span> <span class="hljs-selector-class">.tools-categories-nav</span><span class="hljs-selector-pseudo">:hover</span> &#123;<br>  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">8px</span> <span class="hljs-number">30px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.25</span>);<br>&#125;<br><br><span class="hljs-selector-attr">[data-user-color-scheme=<span class="hljs-string">&quot;dark&quot;</span>]</span> <span class="hljs-selector-class">.category-section-title</span>,<br><span class="hljs-selector-attr">[data-user-color-scheme=<span class="hljs-string">&quot;dark&quot;</span>]</span> <span class="hljs-selector-class">.tool-name</span> &#123;<br>  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--post-heading-color-dark);<br>&#125;<br><br><span class="hljs-selector-attr">[data-user-color-scheme=<span class="hljs-string">&quot;dark&quot;</span>]</span> <span class="hljs-selector-class">.subcategory-nav</span> &#123;<br>  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--body-bg-color-dark);<br>  <span class="hljs-attribute">border-color</span>: <span class="hljs-built_in">var</span>(--line-color-dark);<br>&#125;<br><br><span class="hljs-selector-attr">[data-user-color-scheme=<span class="hljs-string">&quot;dark&quot;</span>]</span> <span class="hljs-selector-class">.subcategory-btn</span> &#123;<br>  <span class="hljs-attribute">background</span>: transparent;<br>  <span class="hljs-attribute">border-color</span>: transparent;<br>  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-color-dark);<br>&#125;<br><br><span class="hljs-selector-attr">[data-user-color-scheme=<span class="hljs-string">&quot;dark&quot;</span>]</span> <span class="hljs-selector-class">.subcategory-btn</span><span class="hljs-selector-pseudo">:hover</span> &#123;<br>  <span class="hljs-attribute">background</span>: transparent;<br>  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--post-heading-color-dark);<br>&#125;<br><br><span class="hljs-selector-attr">[data-user-color-scheme=<span class="hljs-string">&quot;dark&quot;</span>]</span> <span class="hljs-selector-class">.subcategory-btn</span><span class="hljs-selector-class">.active</span> &#123;<br>  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--link-hover-bg-color-dark);<br>  <span class="hljs-attribute">border-color</span>: <span class="hljs-built_in">var</span>(--post-heading-color-dark);<br>  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--post-heading-color-dark);<br>&#125;<br><br><span class="hljs-comment">/* ===== 动画效果 ===== */</span><br><br><span class="hljs-keyword">@keyframes</span> fadeInUp &#123;<br>  <span class="hljs-selector-tag">from</span> &#123;<br>    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateY</span>(<span class="hljs-number">20px</span>);<br>  &#125;<br>  <span class="hljs-selector-tag">to</span> &#123;<br>    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;<br>    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateY</span>(<span class="hljs-number">0</span>);<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 灵活动画延迟系统</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 使用CSS变量和calc()函数实现动态动画延迟</span><br><span class="hljs-comment"> * 支持无限数量的分类，无需手动添加CSS规则</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 实现原理：</span><br><span class="hljs-comment"> * - 每个分类区域设置 --n CSS变量表示索引</span><br><span class="hljs-comment"> * - 使用 calc(0.1s * (var(--n) - 1)) 计算延迟时间</span><br><span class="hljs-comment"> * - 第一个分类延迟0s，第二个0.1s，第三个0.2s，依此类推</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 优势：</span><br><span class="hljs-comment"> * - 无需为每个分类手动编写CSS规则</span><br><span class="hljs-comment"> * - 支持任意数量的分类</span><br><span class="hljs-comment"> * - 易于维护和扩展</span><br><span class="hljs-comment"> * - 与生成器脚本完美配合</span><br><span class="hljs-comment"> */</span><br><span class="hljs-selector-class">.tools-category-section</span><span class="hljs-selector-pseudo">:nth-child</span>(n) &#123;<br>  <span class="hljs-attribute">animation-delay</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">0.1s</span> * (<span class="hljs-built_in">var</span>(--n) - <span class="hljs-number">1</span>));<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 默认CSS变量值</span><br><span class="hljs-comment"> * 确保在没有动态设置时也有合理的默认行为</span><br><span class="hljs-comment"> */</span><br><span class="hljs-selector-class">.tools-category-section</span> &#123;<br>  <span class="hljs-attr">--n</span>: <span class="hljs-number">1</span>; <span class="hljs-comment">/* 默认值 */</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>样式文件核心特性：</strong></p>
+<ol>
+<li><p><strong>现代布局系统</strong>：</p>
+<ul>
+<li>使用Flexbox和CSS Grid实现响应式布局</li>
+<li>左右分栏设计，左侧导航粘性定位</li>
+<li>4列工具网格，支持多设备适配</li>
+</ul>
+</li>
+<li><p><strong>交互反馈</strong>：</p>
+<ul>
+<li>悬停状态显示箭头指示器</li>
+<li>平滑过渡动画增强用户体验</li>
+<li>活跃状态视觉突出</li>
+</ul>
+</li>
+<li><p><strong>响应式设计</strong>：</p>
+<ul>
+<li>平板设备：切换为垂直布局，2列网格</li>
+<li>移动设备：进一步优化间距和尺寸</li>
+<li>小屏幕：单列导航，紧凑布局</li>
+</ul>
+</li>
+<li><p><strong>主题支持</strong>：</p>
+<ul>
+<li>完整的暗色模式适配</li>
+<li>使用CSS变量确保主题一致性</li>
+<li>平滑的主题切换效果</li>
+</ul>
+</li>
+<li><p><strong>动画效果</strong>：</p>
+<ul>
+<li>淡入上浮入场动画</li>
+<li>渐进式动画延迟</li>
+<li>平滑的状态切换</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-交互脚本"><a href="#4-交互脚本" class="headerlink" title="4. 交互脚本"></a>4. 交互脚本</h3><p>创建JavaScript交互脚本，处理页面的动态功能：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 工具页面交互功能</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 主要功能：</span><br><span class="hljs-comment"> * 1. 分类导航点击处理</span><br><span class="hljs-comment"> * 2. 滚动状态更新</span><br><span class="hljs-comment"> * 3. 子分类切换功能</span><br><span class="hljs-comment"> * 4. 响应式行为适配</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 设计原则：</span><br><span class="hljs-comment"> * - 渐进增强：基础功能在无JavaScript时仍可用</span><br><span class="hljs-comment"> * - 性能优化：使用事件委托和防抖技术</span><br><span class="hljs-comment"> * - 用户体验：提供流畅的交互反馈</span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-comment">// 等待DOM完全加载后初始化</span><br><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;DOMContentLoaded&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-title function_">initializeInteraction</span>();<br>&#125;);<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 初始化所有交互功能</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">initializeInteraction</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-comment">// 初始化分类导航交互</span><br>  <span class="hljs-title function_">initializeCategoryNavigation</span>();<br>  <br>  <span class="hljs-comment">// 初始化子分类切换</span><br>  <span class="hljs-title function_">initializeSubcategorySwitching</span>();<br>  <br>  <span class="hljs-comment">// 初始化滚动监听</span><br>  <span class="hljs-title function_">initializeScrollObserver</span>();<br>  <br>  <span class="hljs-comment">// 初始化响应式行为</span><br>  <span class="hljs-title function_">initializeResponsiveBehavior</span>();<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 初始化分类导航交互</span><br><span class="hljs-comment"> * 处理左侧导航点击和滚动状态更新</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">initializeCategoryNavigation</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> categoryLinks = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&#x27;.category-nav-link&#x27;</span>);<br>  <span class="hljs-keyword">const</span> categorySections = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&#x27;.tools-category-section&#x27;</span>);<br>  <br>  <span class="hljs-comment">// 为每个分类链接添加点击事件</span><br>  categoryLinks.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">link</span> =&gt;</span> &#123;<br>    link.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) &#123;<br>      e.<span class="hljs-title function_">preventDefault</span>();<br>      <br>      <span class="hljs-keyword">const</span> targetId = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">getAttribute</span>(<span class="hljs-string">&#x27;href&#x27;</span>).<span class="hljs-title function_">substring</span>(<span class="hljs-number">1</span>);<br>      <span class="hljs-keyword">const</span> targetSection = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(targetId);<br>      <br>      <span class="hljs-keyword">if</span> (targetSection) &#123;<br>        <span class="hljs-comment">// 平滑滚动到目标分类</span><br>        targetSection.<span class="hljs-title function_">scrollIntoView</span>(&#123;<br>          <span class="hljs-attr">behavior</span>: <span class="hljs-string">&#x27;smooth&#x27;</span>,<br>          <span class="hljs-attr">block</span>: <span class="hljs-string">&#x27;start&#x27;</span><br>        &#125;);<br>        <br>        <span class="hljs-comment">// 更新活跃状态</span><br>        <span class="hljs-title function_">updateActiveCategory</span>(<span class="hljs-variable language_">this</span>);<br>      &#125;<br>    &#125;);<br>  &#125;);<br>  <br>  <span class="hljs-comment">// 使用Intersection Observer监听分类区域可见性</span><br>  <span class="hljs-keyword">const</span> observerOptions = &#123;<br>    <span class="hljs-attr">root</span>: <span class="hljs-literal">null</span>,<br>    <span class="hljs-attr">rootMargin</span>: <span class="hljs-string">&#x27;-20% 0px -70% 0px&#x27;</span>,<br>    <span class="hljs-attr">threshold</span>: <span class="hljs-number">0</span><br>  &#125;;<br>  <br>  <span class="hljs-keyword">const</span> sectionObserver = <span class="hljs-keyword">new</span> <span class="hljs-title class_">IntersectionObserver</span>(<span class="hljs-function">(<span class="hljs-params">entries</span>) =&gt;</span> &#123;<br>    entries.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">entry</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">if</span> (entry.<span class="hljs-property">isIntersecting</span>) &#123;<br>        <span class="hljs-keyword">const</span> activeLink = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">`.category-nav-link[href=&quot;#<span class="hljs-subst">$&#123;entry.target.id&#125;</span>&quot;]`</span>);<br>        <span class="hljs-keyword">if</span> (activeLink) &#123;<br>          <span class="hljs-title function_">updateActiveCategory</span>(activeLink);<br>        &#125;<br>      &#125;<br>    &#125;);<br>  &#125;, observerOptions);<br>  <br>  <span class="hljs-comment">// 观察所有分类区域</span><br>  categorySections.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">section</span> =&gt;</span> &#123;<br>    sectionObserver.<span class="hljs-title function_">observe</span>(section);<br>  &#125;);<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 更新活跃的分类导航项</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">HTMLElement</span>&#125; activeLink 当前活跃的链接</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">updateActiveCategory</span>(<span class="hljs-params">activeLink</span>) &#123;<br>  <span class="hljs-comment">// 移除所有活跃状态</span><br>  <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&#x27;.category-nav-link&#x27;</span>).<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">link</span> =&gt;</span> &#123;<br>    link.<span class="hljs-property">classList</span>.<span class="hljs-title function_">remove</span>(<span class="hljs-string">&#x27;active&#x27;</span>);<br>  &#125;);<br>  <br>  <span class="hljs-comment">// 添加新的活跃状态</span><br>  activeLink.<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;active&#x27;</span>);<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 初始化子分类切换功能</span><br><span class="hljs-comment"> * 处理子分类按钮点击和内容显示</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">initializeSubcategorySwitching</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> subcategoryButtons = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&#x27;.subcategory-btn&#x27;</span>);<br>  <br>  <span class="hljs-comment">// 使用事件委托处理子分类按钮点击</span><br>  <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) &#123;<br>    <span class="hljs-keyword">if</span> (e.<span class="hljs-property">target</span>.<span class="hljs-property">classList</span>.<span class="hljs-title function_">contains</span>(<span class="hljs-string">&#x27;subcategory-btn&#x27;</span>)) &#123;<br>      <span class="hljs-keyword">const</span> button = e.<span class="hljs-property">target</span>;<br>      <span class="hljs-keyword">const</span> subcategoryId = button.<span class="hljs-title function_">getAttribute</span>(<span class="hljs-string">&#x27;data-subcategory&#x27;</span>);<br>      <span class="hljs-keyword">const</span> parentCategory = button.<span class="hljs-title function_">closest</span>(<span class="hljs-string">&#x27;.tools-category-section&#x27;</span>);<br>      <br>      <span class="hljs-keyword">if</span> (parentCategory &amp;&amp; subcategoryId) &#123;<br>        <span class="hljs-comment">// 切换子分类显示</span><br>        <span class="hljs-title function_">switchSubcategory</span>(parentCategory, subcategoryId, button);<br>      &#125;<br>    &#125;<br>  &#125;);<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 切换子分类显示</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">HTMLElement</span>&#125; parentCategory 父级分类容器</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">string</span>&#125; subcategoryId 子分类ID</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">HTMLElement</span>&#125; activeButton 当前点击的按钮</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">switchSubcategory</span>(<span class="hljs-params">parentCategory, subcategoryId, activeButton</span>) &#123;<br>  <span class="hljs-comment">// 获取所有子分类内容和按钮</span><br>  <span class="hljs-keyword">const</span> subcategoryContents = parentCategory.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&#x27;.subcategory-content&#x27;</span>);<br>  <span class="hljs-keyword">const</span> subcategoryButtons = parentCategory.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&#x27;.subcategory-btn&#x27;</span>);<br>  <br>  <span class="hljs-comment">// 隐藏所有子分类内容</span><br>  subcategoryContents.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">content</span> =&gt;</span> &#123;<br>    content.<span class="hljs-property">classList</span>.<span class="hljs-title function_">remove</span>(<span class="hljs-string">&#x27;active&#x27;</span>);<br>  &#125;);<br>  <br>  <span class="hljs-comment">// 移除所有按钮的活跃状态</span><br>  subcategoryButtons.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">button</span> =&gt;</span> &#123;<br>    button.<span class="hljs-property">classList</span>.<span class="hljs-title function_">remove</span>(<span class="hljs-string">&#x27;active&#x27;</span>);<br>  &#125;);<br>  <br>  <span class="hljs-comment">// 显示目标子分类内容</span><br>  <span class="hljs-keyword">const</span> targetContent = parentCategory.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">`#<span class="hljs-subst">$&#123;subcategoryId&#125;</span>`</span>);<br>  <span class="hljs-keyword">if</span> (targetContent) &#123;<br>    targetContent.<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;active&#x27;</span>);<br>  &#125;<br>  <br>  <span class="hljs-comment">// 设置当前按钮为活跃状态</span><br>  activeButton.<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;active&#x27;</span>);<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 初始化滚动监听</span><br><span class="hljs-comment"> * 优化滚动性能和用户体验</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">initializeScrollObserver</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-comment">// 使用防抖技术优化滚动性能</span><br>  <span class="hljs-keyword">let</span> scrollTimeout;<br>  <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;scroll&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-built_in">clearTimeout</span>(scrollTimeout);<br>    scrollTimeout = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>      <span class="hljs-comment">// 在滚动停止后执行的操作</span><br>      <span class="hljs-title function_">updateStickyNavigation</span>();<br>    &#125;, <span class="hljs-number">100</span>);<br>  &#125;);<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 更新粘性导航状态</span><br><span class="hljs-comment"> * 根据滚动位置调整导航栏行为</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">updateStickyNavigation</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> nav = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.tools-categories-nav&#x27;</span>);<br>  <span class="hljs-keyword">if</span> (!nav) <span class="hljs-keyword">return</span>;<br>  <br>  <span class="hljs-comment">// 根据滚动位置调整导航栏样式</span><br>  <span class="hljs-keyword">const</span> scrollY = <span class="hljs-variable language_">window</span>.<span class="hljs-property">scrollY</span>;<br>  <span class="hljs-keyword">if</span> (scrollY &gt; <span class="hljs-number">100</span>) &#123;<br>    nav.<span class="hljs-property">style</span>.<span class="hljs-property">boxShadow</span> = <span class="hljs-string">&#x27;0 4px 20px rgba(0, 0, 0, 0.1)&#x27;</span>;<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    nav.<span class="hljs-property">style</span>.<span class="hljs-property">boxShadow</span> = <span class="hljs-string">&#x27;0 2px 10px rgba(0, 0, 0, 0.05)&#x27;</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 初始化响应式行为</span><br><span class="hljs-comment"> * 处理不同屏幕尺寸下的特殊行为</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">initializeResponsiveBehavior</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-comment">// 监听窗口大小变化</span><br>  <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;resize&#x27;</span>, <span class="hljs-title function_">debounce</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-title function_">handleResponsiveLayout</span>();<br>  &#125;, <span class="hljs-number">250</span>));<br>  <br>  <span class="hljs-comment">// 初始调用</span><br>  <span class="hljs-title function_">handleResponsiveLayout</span>();<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 处理响应式布局调整</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">handleResponsiveLayout</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> isMobile = <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span> &lt;= <span class="hljs-number">768</span>;<br>  <span class="hljs-keyword">const</span> nav = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.tools-categories-nav&#x27;</span>);<br>  <br>  <span class="hljs-keyword">if</span> (nav) &#123;<br>    <span class="hljs-keyword">if</span> (isMobile) &#123;<br>      <span class="hljs-comment">// 移动端：取消粘性定位</span><br>      nav.<span class="hljs-property">style</span>.<span class="hljs-property">position</span> = <span class="hljs-string">&#x27;static&#x27;</span>;<br>      nav.<span class="hljs-property">style</span>.<span class="hljs-property">maxHeight</span> = <span class="hljs-string">&#x27;none&#x27;</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-comment">// 桌面端：恢复粘性定位</span><br>      nav.<span class="hljs-property">style</span>.<span class="hljs-property">position</span> = <span class="hljs-string">&#x27;sticky&#x27;</span>;<br>      nav.<span class="hljs-property">style</span>.<span class="hljs-property">maxHeight</span> = <span class="hljs-string">&#x27;calc(100vh - 120px)&#x27;</span>;<br>    &#125;<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 防抖函数</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">Function</span>&#125; func 要防抖的函数</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">number</span>&#125; wait 等待时间</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@returns</span> &#123;<span class="hljs-type">Function</span>&#125; 防抖后的函数</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">debounce</span>(<span class="hljs-params">func, wait</span>) &#123;<br>  <span class="hljs-keyword">let</span> timeout;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">executedFunction</span>(<span class="hljs-params">...args</span>) &#123;<br>    <span class="hljs-keyword">const</span> <span class="hljs-title function_">later</span> = (<span class="hljs-params"></span>) =&gt; &#123;<br>      <span class="hljs-built_in">clearTimeout</span>(timeout);<br>      <span class="hljs-title function_">func</span>(...args);<br>    &#125;;<br>    <span class="hljs-built_in">clearTimeout</span>(timeout);<br>    timeout = <span class="hljs-built_in">setTimeout</span>(later, wait);<br>  &#125;;<br>&#125;<br><br><span class="hljs-comment">// 导出函数供其他模块使用（如果使用模块系统）</span><br><span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-variable language_">module</span> !== <span class="hljs-string">&#x27;undefined&#x27;</span> &amp;&amp; <span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span>) &#123;<br>  <span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>    initializeInteraction,<br>    initializeCategoryNavigation,<br>    initializeSubcategorySwitching<br>  &#125;;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>交互脚本核心功能：</strong></p>
+<ol>
+<li><p><strong>分类导航</strong>：</p>
+<ul>
+<li>平滑滚动到目标分类</li>
+<li>自动更新活跃状态</li>
+<li>使用Intersection Observer优化性能</li>
+</ul>
+</li>
+<li><p><strong>子分类切换</strong>：</p>
+<ul>
+<li>动态显示&#x2F;隐藏子分类内容</li>
+<li>按钮状态管理</li>
+<li>事件委托优化性能</li>
+</ul>
+</li>
+<li><p><strong>滚动优化</strong>：</p>
+<ul>
+<li>防抖技术减少滚动事件触发频率</li>
+<li>动态调整导航栏样式</li>
+<li>响应式粘性定位</li>
+</ul>
+</li>
+<li><p><strong>响应式适配</strong>：</p>
+<ul>
+<li>窗口大小变化监听</li>
+<li>移动端布局调整</li>
+<li>性能优化处理</li>
+</ul>
+</li>
+</ol>
+<h2 id="部署和使用"><a href="#部署和使用" class="headerlink" title="部署和使用"></a>部署和使用</h2><h3 id="1-文件结构"><a href="#1-文件结构" class="headerlink" title="1. 文件结构"></a>1. 文件结构</h3><p>确保项目具有正确的文件结构：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs nix">hexo-blog<span class="hljs-symbol">/</span><br>├── scripts<span class="hljs-symbol">/</span><br>│   └── tools-generator.js<br>├── source<span class="hljs-symbol">/</span><br>│   ├── css<span class="hljs-symbol">/</span><br>│   │   └── tools-grid.css<br>│   ├── js<span class="hljs-symbol">/</span><br>│   │   └── subcategory-interaction.js<br>│   └── oneself<span class="hljs-symbol">/</span><br>│       └── index.md<br>└── _config.yml<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-安装依赖"><a href="#2-安装依赖" class="headerlink" title="2. 安装依赖"></a>2. 安装依赖</h3><p>确保已安装必要的Node.js依赖：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install js-yaml<br><span class="hljs-comment"># 或者使用pnpm</span><br>pnpm add js-yaml<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-构建和部署"><a href="#3-构建和部署" class="headerlink" title="3. 构建和部署"></a>3. 构建和部署</h3><p>使用标准的Hexo命令构建和部署：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 清理缓存</span><br>hexo clean<br><br><span class="hljs-comment"># 生成静态文件</span><br>hexo generate<br><br><span class="hljs-comment"># 启动本地服务器测试</span><br>hexo server<br><br><span class="hljs-comment"># 部署到服务器</span><br>hexo deploy<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-自定义配置"><a href="#4-自定义配置" class="headerlink" title="4. 自定义配置"></a>4. 自定义配置</h3><p>可以根据需要修改以下配置：</p>
+<ul>
+<li><strong>工具数据</strong>：在 <code>source/oneself/index.md</code> 的Front Matter中修改 <code>tools_config</code></li>
+<li><strong>样式主题</strong>：在 <code>source/css/tools-grid.css</code> 中调整颜色和布局</li>
+<li><strong>交互行为</strong>：在 <code>source/js/subcategory-interaction.js</code> 中自定义交互逻辑</li>
+</ul>
+<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><h3 id="1-性能优化"><a href="#1-性能优化" class="headerlink" title="1. 性能优化"></a>1. 性能优化</h3><ul>
+<li><strong>代码分割</strong>：将CSS和JS文件分开加载</li>
+<li><strong>懒加载</strong>：对图片和资源使用懒加载</li>
+<li><strong>缓存策略</strong>：合理设置缓存头</li>
+</ul>
+<h3 id="2-可访问性"><a href="#2-可访问性" class="headerlink" title="2. 可访问性"></a>2. 可访问性</h3><ul>
+<li><strong>键盘导航</strong>：确保所有功能支持键盘操作</li>
+<li><strong>屏幕阅读器</strong>：添加适当的ARIA标签</li>
+<li><strong>颜色对比</strong>：确保文字和背景有足够的对比度</li>
+</ul>
+<h3 id="3-浏览器兼容性"><a href="#3-浏览器兼容性" class="headerlink" title="3. 浏览器兼容性"></a>3. 浏览器兼容性</h3><ul>
+<li><strong>渐进增强</strong>：确保基础功能在所有浏览器中可用</li>
+<li><strong>特性检测</strong>：使用现代浏览器特性时进行检测</li>
+<li><strong>回退方案</strong>：为不支持的功能提供替代方案</li>
+</ul>
+<h3 id="4-维护性"><a href="#4-维护性" class="headerlink" title="4. 维护性"></a>4. 维护性</h3><ul>
+<li><strong>模块化设计</strong>：保持代码的模块化和可复用性</li>
+<li><strong>文档注释</strong>：为重要函数添加详细的注释</li>
+<li><strong>错误处理</strong>：完善的错误处理和日志记录</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本教程详细介绍了如何在Hexo博客中创建功能完整的个性化工具页面。通过四个核心文件的协同工作，实现了：</p>
+<ol>
+<li><strong>配置集中管理</strong>：将工具数据集成到页面Front Matter中</li>
+<li><strong>静态生成优化</strong>：使用Hexo生成器在构建时生成页面</li>
+<li><strong>现代化设计</strong>：采用响应式布局和丰富的交互效果</li>
+<li><strong>完整的功能</strong>：包含分类导航、子分类切换、暗色模式等特性</li>
+<li><strong>灵活动画系统</strong>：使用CSS变量和calc()函数实现动态动画延迟，支持无限分类数量</li>
+</ol>
+<p><strong>关键技术亮点：</strong></p>
+<ul>
+<li><strong>CSS变量动画延迟</strong>：使用 <code>calc(0.1s * (var(--n) - 1))</code> 实现动态动画延迟，无需为每个分类手动编写CSS规则</li>
+<li><strong>生成器脚本集成</strong>：在生成HTML时为每个分类区域设置CSS变量值 <code>--n</code></li>
+<li><strong>无限扩展性</strong>：支持任意数量的分类，不受CSS规则数量限制</li>
+<li><strong>性能优化</strong>：使用Intersection Observer和事件委托技术提升交互性能</li>
+</ul>
+<p>这个解决方案不仅功能强大，而且具有良好的可维护性和扩展性，可以根据具体需求进行定制和扩展。</p>
+<p>通过本教程的学习，你应该能够：</p>
+<ul>
+<li>理解Hexo生成器的工作原理</li>
+<li>掌握现代CSS布局技术</li>
+<li>实现复杂的JavaScript交互功能</li>
+<li>创建专业级的静态网站页面</li>
+<li>使用CSS变量和calc()函数实现动态样式</li>
+<li>优化动画性能和用户体验</li>
+</ul>
+<p>希望这个教程对你的项目开发有所帮助！</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Hexo/" class="category-chain-item">Hexo</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
+      
+        <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="print-no-link">#前端开发</a>
+      
+        <a href="/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" class="print-no-link">#静态网站</a>
+      
+        <a href="/tags/%E5%B7%A5%E5%85%B7%E9%A1%B5%E9%9D%A2/" class="print-no-link">#工具页面</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Hexo个性化工具页面开发教程</div>
+      <div>https://sakura-zl.github.io/2025/10/12/Hexo/Hexo个性化工具页面开发教程/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Sakura</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年10月12日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/03/18/Windows/Windows%2011%20%E5%AE%B6%E5%BA%AD%E7%89%88%E5%AE%89%E8%A3%85WSL%E5%92%8CUbuntu/" title="Windows 11 家庭版安装WSL和Ubuntu">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Windows 11 家庭版安装WSL和Ubuntu</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/10/10/Hexo/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/subcategory-interaction.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

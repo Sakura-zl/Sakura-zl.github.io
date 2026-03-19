@@ -1,0 +1,250 @@
+/* ===================================
+   Sakura Blog 自定义样式
+   第一阶段：基础优化样式
+   =================================== */
+
+/* ===== 1. 全局优化 ===== */
+
+/* 文章卡片悬停效果 */
+.index-card {
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.index-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: rgba(102, 126, 234, 0.3);
+}
+
+/* 阅读更多按钮样式优化 */
+.read-more {
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    padding: 6px 18px;
+}
+
+.read-more:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+}
+
+/* ===== 2. 首页头图优化 ===== */
+.banner .parallax img {
+    filter: brightness(0.85);
+}
+
+/* 首页标题动画 */
+.banner .page-header .sakura-title {
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 副标题打字机效果优化 */
+#subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* ===== 3. 文章页优化 ===== */
+
+/* 文章标题样式 */
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+    position: relative;
+    padding-left: 15px;
+}
+
+.post-content h1::before,
+.post-content h2::before,
+.post-content h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 70%;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+/* 代码块优化 */
+.post-content pre {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post-content code {
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9em;
+}
+
+/* 引用块样式 */
+.post-content blockquote {
+    border-left: 4px solid #667eea;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    padding: 15px 20px;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+}
+
+/* 表格样式优化 */
+.post-content table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.post-content table th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.post-content table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.post-content table tr:hover {
+    background-color: rgba(102, 126, 234, 0.05);
+}
+
+/* ===== 4. 关于页面优化 ===== */
+
+.about-avatar {
+    transition: transform 0.3s ease;
+}
+
+.about-avatar:hover {
+    transform: scale(1.05);
+}
+
+/* ===== 5. 侧边栏优化 ===== */
+
+/* 目录样式优化 */
+.tocbot-list {
+    border-left: 2px solid rgba(102, 126, 234, 0.3);
+}
+
+.tocbot-link {
+    transition: all 0.2s ease;
+}
+
+.tocbot-link:hover {
+    color: #667eea;
+    padding-left: 5px;
+}
+
+/* 分类栏样式 */
+.category-bar {
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+/* ===== 6. 暗色模式优化 ===== */
+
+[data-user-color-scheme="dark"] .index-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+[data-user-color-scheme="dark"] .post-content blockquote {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+}
+
+/* ===== 7. 动画效果 ===== */
+
+/* 页面加载淡入效果 */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 悬浮按钮效果 */
+.floating-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== 8. 响应式优化 ===== */
+
+@media (max-width: 768px) {
+    .index-card {
+        margin-bottom: 20px;
+    }
+    
+    .post-content h1,
+    .post-content h2,
+    .post-content h3 {
+        padding-left: 10px;
+    }
+    
+    .post-content h1::before,
+    .post-content h2::before,
+    .post-content h3::before {
+        width: 3px;
+    }
+}
+
+/* ===== 9. 特殊效果 ===== */
+
+/* 樱花飘落动画效果（可选） */
+.sakura-petal {
+    position: fixed;
+    top: -50px;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, rgba(255, 183, 197, 0.9) 0%, rgba(255, 183, 197, 0.4) 100%);
+    border-radius: 50% 0 50% 50%;
+    pointer-events: none;
+    animation: fall linear infinite;
+    z-index: 9999;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg) translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* 玻璃拟态效果 */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 15px;
+}
+
+[data-user-color-scheme="dark"] .glass-effect {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}

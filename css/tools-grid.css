@@ -1,0 +1,725 @@
+/**
+ * 工具网格布局样式
+ * 
+ * 定义工具分类页面的整体布局和组件样式
+ * 
+ * 主要功能模块：
+ * 1. 主布局系统 - 左右分栏布局
+ * 2. 分类导航 - 左侧粘性导航栏
+ * 3. 工具网格 - 4列响应式网格布局
+ * 4. 子分类系统 - 子分类导航和内容切换
+ * 5. 响应式设计 - 多设备适配
+ * 6. 暗色模式支持 - 主题切换适配
+ * 7. 动画效果 - 入场动画和交互反馈
+ * 
+ * 设计原则：
+ * - 使用CSS Grid和Flexbox实现现代布局
+ * - 支持响应式设计，适配不同屏幕尺寸
+ * - 提供良好的用户体验和视觉反馈
+ * - 遵循CSS变量系统，支持主题切换
+ */
+
+/* ===== 主布局样式 ===== */
+
+/**
+ * 工具布局容器
+ * 
+ * 采用左右分栏布局，左侧导航，右侧内容
+ * 
+ * 布局特点：
+ * - 左侧导航固定宽度1/6，右侧内容占据5/6
+ * - 使用Flexbox实现弹性布局
+ * - 支持响应式设计，在小屏幕上切换为垂直布局
+ * 
+ * @property {number} gap - 左右分栏间距
+ * @property {number} margin - 上下外边距
+ * @property {number} min-height - 最小高度，确保内容区域足够显示
+ */
+.tools-layout-container {
+  display: flex;
+  gap: 30px;
+  margin: 40px 0;
+  min-height: 600px;
+}
+
+/**
+ * 左侧分类导航
+ * 
+ * 固定宽度1/6，支持粘性定位和滚动
+ * 
+ * 功能特点：
+ * - 粘性定位：滚动时固定在视口顶部
+ * - 高度限制：最大高度为视口高度减去顶部偏移
+ * - 滚动支持：内容过多时支持垂直滚动
+ * - 视觉层次：使用阴影和圆角增强视觉层次
+ * 
+ * 定位参数：
+ * @property {number} top - 距离顶部80px开始冻结
+ * @property {number} max-height - 最大高度计算，避免超出视口
+ * @property {string} overflow-y - 垂直溢出时显示滚动条
+ */
+.tools-categories-nav {
+  flex: 1;
+  max-width: 16.67%;
+  background: var(--board-color);
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 80px; /* 距离顶部80px开始冻结 */
+  height: fit-content;
+  margin-left: -5px;
+  margin-right: 5px;
+  z-index: 1;
+  max-height: calc(100vh - 120px); /* 限制最大高度 */
+  overflow-y: auto; /* 内容过多时可滚动 */
+}
+
+.categories-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-nav-item {
+  margin-bottom: 8px;
+}
+
+.category-nav-link {
+  display: block;
+  padding: 8px 12px;
+  background: var(--body-bg-color);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 0.95em;
+  transition: all 0.3s ease;
+  border: 1px solid var(--line-color);
+  white-space: nowrap; /* 防止文字换行 */
+  text-align: center;
+}
+
+.category-nav-link:hover,
+.category-nav-link.active {
+  background: var(--link-hover-bg-color);
+  color: #3c4858;
+  border-color: #3c4858;
+}
+
+.category-nav-link.active {
+  font-weight: 600;
+}
+
+/**
+ * 右侧工具内容区域
+ * 
+ * 占据5/6宽度，支持滚动边距
+ * 
+ * 功能特点：
+ * - 弹性布局：占据剩余空间
+ * - 滚动边距：与左侧导航冻结位置保持一致
+ * - 内容容器：承载所有分类区域和工具网格
+ * 
+ * 滚动行为：
+ * @property {number} scroll-margin-top - 滚动边距，确保内容不被导航栏遮挡
+ */
+.tools-content {
+  flex: 5;
+  max-width: 83.33%;
+  scroll-margin-top: 80px; /* 与左侧导航冻结位置保持一致 */
+}
+
+/* ===== 分类区域样式 ===== */
+
+/**
+ * 工具分类区域
+ * 
+ * 包含分类标题、子分类导航和工具网格
+ * 
+ * 设计特点：
+ * - 独立堆叠上下文：使用isolation属性避免样式冲突
+ * - 入场动画：使用fadeInUp动画增强用户体验
+ * - 边框和间距：使用CSS变量确保主题一致性
+ * - 滚动边距：确保滚动定位准确
+ * 
+ * 动画效果：
+ * @property {string} animation - 淡入上浮动画，持续0.6秒
+ * @property {string} isolation - 创建新的堆叠上下文
+ */
+.tools-category-section {
+  background: transparent;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid var(--line-color);
+  margin-bottom: 16px;
+  scroll-margin-top: 80px;
+  isolation: isolate; /* 创建新的堆叠上下文 */
+  animation: fadeInUp 0.6s ease forwards; /* 入场动画 */
+}
+
+/**
+ * 分类头部容器
+ * 
+ * 包含分类标题和子分类导航
+ * 
+ * 布局特点：
+ * - 水平排列：分类标题和子分类导航水平排列
+ * - 弹性布局：使用Flexbox实现灵活布局
+ * - 换行支持：在小屏幕上支持换行显示
+ * - 间距控制：使用gap属性控制元素间距
+ * 
+ * 响应式特性：
+ * @property {string} flex-wrap - 支持换行，适应小屏幕
+ * @property {number} gap - 元素间距，确保视觉平衡
+ */
+.category-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.category-section-title {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: var(--post-heading-color);
+  padding: 8px 16px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* ===== 工具网格样式 ===== */
+
+/**
+ * 工具网格布局
+ * 
+ * 4列网格布局，支持响应式调整
+ * 
+ * 网格系统：
+ * - 桌面端：4列网格，间距16px
+ * - 平板端：2列网格，间距10px
+ * - 移动端：2列网格，间距8px
+ * 
+ * 设计原则：
+ * - 统一高度：所有工具卡片统一高度
+ * - 视觉层次：使用阴影和边框增强层次感
+ * - 交互反馈：悬停状态提供视觉反馈
+ * 
+ * 响应式断点：
+ * @media (max-width: 1024px) - 平板设备适配
+ * @media (max-width: 768px) - 移动设备适配
+ * @media (max-width: 480px) - 小屏幕设备适配
+ */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/**
+ * 工具项卡片
+ * 
+ * 统一高度和样式的工具卡片
+ * 
+ * 卡片设计：
+ * - 统一高度：40px固定高度，确保视觉一致性
+ * - 弹性布局：图标和文字水平排列
+ * - 交互反馈：悬停时显示箭头指示器
+ * - 视觉层次：使用阴影和边框增强层次感
+ * 
+ * 交互特性：
+ * @property {string} position - 相对定位，为伪元素提供定位上下文
+ * @property {number} padding-right - 悬停时为箭头留出空间
+ * @property {string} transition - 平滑过渡效果
+ */
+.tool-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: transparent;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  border: 1px solid var(--line-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  text-align: left;
+  height: 40px; /* 统一卡片高度 */
+  min-height: 40px; /* 确保最小高度一致 */
+  z-index: 1;
+  position: relative; /* 为悬停箭头提供定位上下文 */
+}
+
+.tool-item:hover {
+  background: var(--link-hover-bg-color);
+  border-color: #3c4858;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding-right: 24px; /* 为箭头留出空间 */
+}
+
+/**
+ * 工具图标样式
+ * 
+ * 图标容器样式，确保图标显示一致
+ * 
+ * 设计特点：
+ * - 固定尺寸：最小宽度24px，确保图标对齐
+ * - 居中显示：使用Flexbox实现垂直水平居中
+ * - 间距控制：右侧间距12px，与文字保持适当距离
+ * - 彩色图标：确保SVG图标显示为彩色
+ * 
+ * 尺寸规范：
+ * @property {number} min-width - 最小宽度，确保布局稳定
+ * @property {number} font-size - 图标大小，1.5em相对大小
+ */
+.tool-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  font-size: 1.5em;
+  min-width: 24px;
+  color: inherit; /* 继承父元素颜色，确保图标彩色显示 */
+}
+
+/* 确保SVG图标显示为彩色 */
+.tool-icon svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor; /* 使用当前文字颜色 */
+  color: inherit; /* 继承父元素颜色 */
+}
+
+/* 图标字体彩色支持 */
+.tool-icon .iconfont {
+  color: inherit; /* 继承父元素颜色 */
+}
+
+/**
+ * 工具内容区域
+ * 
+ * 工具名称显示区域
+ * 
+ * 布局特点：
+ * - 弹性布局：占据剩余空间
+ * - 垂直居中：使用Flexbox实现内容垂直居中
+ * - 文本溢出：使用min-width: 0防止文本溢出
+ * - 静态定位：避免影响其他布局
+ * 
+ * 文本样式：
+ * @property {string} min-width - 防止文本溢出容器
+ * @property {string} flex-direction - 列布局，支持多行文本
+ */
+.tool-content {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: static;
+}
+
+.tool-name {
+  font-size: 0.85em;
+  font-weight: 600;
+  margin: 0;
+  color: var(--post-heading-color);
+  line-height: 1.2;
+  text-align: left;
+}
+
+/**
+ * 工具卡片悬停时显示箭头
+ * 
+ * 使用CSS伪元素实现悬停指示器
+ * 
+ * 实现原理：
+ * - 使用::after伪元素创建箭头
+ * - 悬停时显示，提供视觉反馈
+ * - 绝对定位，确保位置准确
+ * - 平滑过渡，增强用户体验
+ * 
+ * 定位参数：
+ * @property {string} content - 箭头字符'➔'
+ * @property {string} position - 绝对定位
+ * @property {number} right - 距离右侧12px
+ * @property {string} transform - 垂直居中定位
+ */
+.tool-item:hover::after {
+  content: '➔';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #3c4858;
+  font-weight: normal;
+  font-size: 1.1em;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+/* ===== 子分类导航样式 ===== */
+
+/**
+ * 子分类导航容器
+ * 
+ * 水平布局，支持滚动
+ * 
+ * 导航特性：
+ * - 水平滚动：支持水平滚动，适应多个子分类
+ * - 隐藏滚动条：使用CSS隐藏原生滚动条
+ * - 统一高度：42px固定高度，确保视觉一致性
+ * - 独立堆叠：使用isolation创建独立堆叠上下文
+ * 
+ * 滚动行为：
+ * @property {string} overflow-x - 水平溢出时允许滚动
+ * @property {string} scrollbar-width - 隐藏滚动条（Firefox）
+ * @property {string} -ms-overflow-style - 隐藏滚动条（IE/Edge）
+ */
+.subcategory-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--body-bg-color);
+  border-radius: 8px;
+  border: 1px solid var(--line-color);
+  margin: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  height: 42px; /* 统一高度 */
+  min-height: 42px; /* 确保最小高度一致 */
+  z-index: 1;
+  position: relative;
+  isolation: isolate; /* 创建独立的堆叠上下文 */
+}
+
+.subcategory-nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 8px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.subcategory-nav ul::-webkit-scrollbar {
+  display: none;
+}
+
+/**
+ * 子分类按钮
+ * 
+ * 子分类切换按钮样式
+ * 
+ * 状态设计：
+ * - 默认状态：透明背景，主题文字颜色
+ * - 悬停状态：轻微上浮效果，颜色加深
+ * - 活跃状态：背景色变化，阴影增强，字体加粗
+ * 
+ * 交互反馈：
+ * @property {string} transform - 悬停和活跃状态的位移效果
+ * @property {string} transition - 平滑过渡动画
+ * @property {string} box-shadow - 活跃状态的阴影效果
+ */
+.subcategory-btn {
+  padding: 6px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  color: var(--text-color);
+  font-size: 0.85em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.subcategory-btn:hover {
+  background: transparent;
+  color: #3c4858;
+  transform: translateY(-1px);
+}
+
+.subcategory-btn.active {
+  background: var(--link-hover-bg-color);
+  color: #3c4858;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+
+/**
+ * 子分类内容区域
+ * 
+ * 子分类对应的工具内容显示区域
+ * 
+ * 显示控制：
+ * - 默认隐藏：display: none
+ * - 活跃显示：添加.active类时显示为block
+ * - 动画效果：使用fadeInUp动画增强用户体验
+ * 
+ * 动画特性：
+ * @property {string} animation - 淡入上浮动画，持续0.4秒
+ * @property {string} display - 使用display控制显示隐藏
+ */
+.subcategory-content {
+  display: none;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.subcategory-content.active {
+  display: block;
+}
+
+/* ===== 响应式设计 ===== */
+
+/**
+ * 平板设备适配 (1024px及以下)
+ * 
+ * 主要调整：
+ * - 布局切换：从左右分栏切换为垂直布局
+ * - 导航网格：分类导航改为网格布局
+ * - 取消粘性：左侧导航取消粘性定位
+ * 
+ * 布局变化：
+ * @property {string} flex-direction - 切换为垂直布局
+ * @property {string} position - 取消粘性定位
+ * @property {string} grid-template-columns - 导航项网格布局
+ */
+@media (max-width: 1024px) {
+  .tools-layout-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .tools-categories-nav,
+  .tools-content {
+    max-width: 100%;
+  }
+  
+  .tools-categories-nav {
+    position: static;
+  }
+  
+  .categories-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  
+  .category-nav-item {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * 移动设备适配 (768px及以下)
+ * 
+ * 主要调整：
+ * - 网格列数：从4列切换为2列
+ * - 间距调整：减小内外边距和间距
+ * - 图标尺寸：适当缩小图标大小
+ * 
+ * 尺寸优化：
+ * @property {number} grid-template-columns - 2列网格布局
+ * @property {number} gap - 减小网格间距
+ * @property {number} font-size - 缩小图标尺寸
+ */
+@media (max-width: 768px) {
+  .tools-layout-container {
+    margin: 30px 0;
+    gap: 16px;
+  }
+  
+  .tools-categories-nav,
+  .tools-category-section {
+    padding: 16px;
+  }
+  
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .tool-item {
+    padding: 6px;
+    gap: 6px;
+  }
+  
+  .tool-icon {
+    margin-right: 8px;
+    font-size: 1.2em;
+    min-width: 20px;
+  }
+}
+
+/**
+ * 小屏幕设备适配 (480px及以下)
+ * 
+ * 极致优化：
+ * - 单列导航：分类导航切换为单列布局
+ * - 紧凑布局：进一步减小内外边距
+ * - 图标优化：调整图标尺寸和间距
+ * 
+ * 紧凑设计：
+ * @property {string} grid-template-columns - 导航项单列布局
+ * @property {number} padding - 进一步减小内边距
+ * @property {number} width - 调整图标容器尺寸
+ */
+@media (max-width: 480px) {
+  .tools-categories-nav,
+  .tools-category-section {
+    padding: 12px;
+  }
+  
+  .tool-item {
+    padding: 8px;
+    flex-direction: row;
+    text-align: left;
+    gap: 8px;
+  }
+  
+  .tool-icon {
+    margin-right: 0;
+    width: 18px;
+    height: 18px;
+    font-size: 0.9em;
+  }
+  
+  .categories-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+/* ===== 暗色模式支持 ===== */
+
+/**
+ * 暗色模式下的样式调整
+ * 
+ * 使用CSS属性选择器匹配暗色模式
+ * 通过CSS变量系统实现主题切换
+ * 
+ * 适配原则：
+ * - 背景色：使用深色背景替代浅色背景
+ * - 文字色：使用浅色文字替代深色文字
+ * - 边框色：调整边框颜色确保对比度
+ * - 阴影效果：增强阴影深度和透明度
+ * 
+ * 选择器说明：
+ * [data-user-color-scheme="dark"] - 暗色模式属性选择器
+ */
+[data-user-color-scheme="dark"] .tools-categories-nav,
+[data-user-color-scheme="dark"] .tools-category-section {
+  background: var(--board-color-dark);
+  border-color: var(--line-color-dark);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+[data-user-color-scheme="dark"] .category-nav-link,
+[data-user-color-scheme="dark"] .tool-item {
+  background: transparent;
+  border-color: var(--line-color-dark);
+}
+
+[data-user-color-scheme="dark"] .tools-category-section:hover,
+[data-user-color-scheme="dark"] .tools-categories-nav:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+[data-user-color-scheme="dark"] .category-section-title,
+[data-user-color-scheme="dark"] .tool-name {
+  color: var(--post-heading-color-dark);
+}
+
+[data-user-color-scheme="dark"] .subcategory-nav {
+  background: var(--body-bg-color-dark);
+  border-color: var(--line-color-dark);
+}
+
+[data-user-color-scheme="dark"] .subcategory-btn {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-color-dark);
+}
+
+[data-user-color-scheme="dark"] .subcategory-btn:hover {
+  background: transparent;
+  color: var(--post-heading-color-dark);
+}
+
+[data-user-color-scheme="dark"] .subcategory-btn.active {
+  background: var(--link-hover-bg-color-dark);
+  border-color: var(--post-heading-color-dark);
+  color: var(--post-heading-color-dark);
+}
+
+/* ===== 动画效果 ===== */
+
+/**
+ * 淡入上浮动画
+ * 
+ * 关键帧动画，实现元素从下方淡入上浮效果
+ * 
+ * 动画参数：
+ * @keyframes fadeInUp - 定义动画关键帧
+ * from - 起始状态：透明度0，Y轴位移20px
+ * to - 结束状态：透明度1，Y轴位移0
+ * 
+ * 使用场景：
+ * - 分类区域入场动画
+ * - 子分类内容切换动画
+ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * 分类区域入场动画延迟 - 灵活解决方案
+ * 
+ * 使用CSS选择器和calc()函数实现自动动画延迟
+ * 无论有多少个分类都能自动计算延迟时间
+ * 
+ * 实现原理：
+ * - 使用:nth-child(n)选择所有分类区域
+ * - 使用calc()函数动态计算延迟时间
+ * - 每个分类递增0.1秒延迟
+ * - 支持无限数量的分类
+ * 
+ * 优势：
+ * - 无需手动添加新的CSS规则
+ * - 自动适应任意数量的分类
+ * - 保持一致的动画效果
+ */
+.tools-category-section:nth-child(n) {
+  animation-delay: calc(0.1s * (var(--n) - 1));
+}
+
+/* 为CSS变量提供回退值 */
+.tools-category-section {
+  --n: 1; /* 默认值 */
+}

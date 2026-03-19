@@ -1,0 +1,123 @@
+/* ===================================
+   Sakura 樱花粉主题配色方案
+   第二阶段：视觉升级
+   =================================== */
+
+/* ===== 1. 主题色彩变量 ===== */
+:root {
+  /* 主色调 - 樱花粉 */
+  --sakura-primary: #ffb7c5;
+  --sakura-primary-light: #ffd1dc;
+  --sakura-primary-dark: #ff69b4;
+  --sakura-primary-deep: #db7093;
+  
+  /* 辅助色 - 薄荷绿 */
+  --sakura-secondary: #98e4d6;
+  --sakura-secondary-light: #b8f0e6;
+  
+  /* 强调色 - 薰衣草紫 */
+  --sakura-accent: #e6e6fa;
+  --sakura-accent-dark: #d8bfd8;
+  
+  /* 文字色 */
+  --sakura-text-primary: #4a4a4a;
+  --sakura-text-secondary: #666;
+  --sakura-text-light: #999;
+  
+  /* 背景色 */
+  --sakura-bg-white: #ffffff;
+  --sakura-bg-light: #faf8f8;
+  --sakura-bg-pink: #fff5f7;
+  --sakura-bg-cream: #fffaf5;
+  
+  /* 渐变 */
+  --sakura-gradient-primary: linear-gradient(135deg, #ffb7c5 0%, #ffd1dc 50%, #ff69b4 100%);
+  --sakura-gradient-soft: linear-gradient(135deg, rgba(255, 183, 197, 0.3) 0%, rgba(255, 209, 220, 0.3) 100%);
+  --sakura-gradient-header: linear-gradient(135deg, rgba(255, 182, 193, 0.4) 0%, rgba(255, 218, 225, 0.4) 100%);
+  
+  /* 阴影 */
+  --sakura-shadow-soft: 0 4px 20px rgba(255, 183, 197, 0.2);
+  --sakura-shadow-medium: 0 8px 30px rgba(255, 183, 197, 0.3);
+  --sakura-shadow-strong: 0 12px 40px rgba(255, 105, 180, 0.25);
+}
+
+/* ===== 2. 全局应用主题色 ===== */
+
+/* 导航栏 */
+.navbar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 183, 197, 0.3);
+  box-shadow: 0 2px 15px rgba(255, 183, 197, 0.1);
+}
+
+.navbar-brand {
+  color: #ff69b4 !important;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(255, 105, 180, 0.2);
+}
+
+.navbar-nav .nav-link {
+  color: #666 !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ff69b4 !important;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ffb7c5, #ff69b4);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 80%;
+}
+
+/* 暗色模式导航栏 */
+[data-user-color-scheme="dark"] .navbar {
+  background: rgba(30, 30, 40, 0.95) !important;
+  border-bottom-color: rgba(255, 183, 197, 0.2);
+}
+
+[data-user-color-scheme="dark"] .navbar-nav .nav-link {
+  color: #aaa !important;
+}
+
+[data-user-color-scheme="dark"] .navbar-nav .nav-link:hover {
+  color: #ff69b4 !important;
+}
+
+/* ===== 3. 首页 Banner 优化 ===== */
+
+.banner .page-header {
+  text-align: center;
+}
+
+.banner .page-header .sakura-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffb7c5 0%, #ff69b4 50%, #db7093 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  letter-spacing: 2px;
+}
+
+.banner .page-header .subtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0

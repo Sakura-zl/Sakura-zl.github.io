@@ -1,0 +1,641 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/sakura.png">
+  <link rel="icon" href="/img/sakura.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sakura">
+  <meta name="keywords" content="技术博客,Linux,Windows,AI工具,编程,学习笔记">
+  
+    <meta name="description" content="实用的在线工具集合">
+<meta property="og:type" content="website">
+<meta property="og:title" content="工具箱">
+<meta property="og:url" content="https://sakura-zl.github.io/tools/index.html">
+<meta property="og:site_name" content="Sakura">
+<meta property="og:description" content="实用的在线工具集合">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-12T07:30:00.000Z">
+<meta property="article:modified_time" content="2026-03-19T15:48:37.450Z">
+<meta property="article:author" content="Sakura">
+<meta property="article:tag" content="AI工具">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="技术博客">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>工具箱 - Sakura</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_5037651_57b9f0voppt.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/tools-grid.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"sakura-zl.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h2,h3,h4","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-10-10T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Sakura&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-archive"></i>
+                <span>文章</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/" target="_self">
+                    <i class="iconfont icon-categories"></i>
+                    <span>分类</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/" target="_self">
+                    <i class="iconfont icon-tags"></i>
+                    <span>标签</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/" target="_self">
+                    <i class="iconfont icon-articles"></i>
+                    <span>归档</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-tool-fill"></i>
+                <span>工具</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/oneself/" target="_self">
+                    <i class="iconfont icon-function_oneself"></i>
+                    <span>个人</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/windows/" target="_self">
+                    <i class="iconfont icon-windows"></i>
+                    <span>Windows</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/linux/" target="_self">
+                    <i class="iconfont icon-linux"></i>
+                    <span>Linux</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/macos/" target="_self">
+                    <i class="iconfont icon-ios"></i>
+                    <span>macOS</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-about"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default_xm.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="工具箱"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<article class="page-content">
+  <div class="tools-container">
+  <div class="tools-header">
+    <h1>🧰 实用工具箱</h1>
+    <p class="tools-desc">收集实用的在线工具，提升工作效率</p>
+  </div>
+
+  <div class="tools-grid">
+    <!-- 开发工具 -->
+    <div class="tool-card">
+      <div class="tool-icon">💻</div>
+      <h3>开发工具</h3>
+      <ul class="tool-list">
+        <li><a href="https://github.com" target="_blank">GitHub</a> - 代码托管</li>
+        <li><a href="https://gitee.com" target="_blank">Gitee</a> - 国内代码托管</li>
+        <li><a href="https://www.jsdelivr.com" target="_blank">jsDelivr</a> - CDN 加速</li>
+      </ul>
+    </div>
+
+<pre><code class="hljs">&lt;!-- 设计工具 --&gt;
+&lt;div class=&quot;tool-card&quot;&gt;
+  &lt;div class=&quot;tool-icon&quot;&gt;🎨&lt;/div&gt;
+  &lt;h3&gt;设计工具&lt;/h3&gt;
+  &lt;ul class=&quot;tool-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;https://www.iconfont.cn&quot; target=&quot;_blank&quot;&gt;Iconfont&lt;/a&gt; - 图标库&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://www.remove.bg&quot; target=&quot;_blank&quot;&gt;Remove.bg&lt;/a&gt; - 抠图工具&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://tinypng.com&quot; target=&quot;_blank&quot;&gt;TinyPNG&lt;/a&gt; - 图片压缩&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- 效率工具 --&gt;
+&lt;div class=&quot;tool-card&quot;&gt;
+  &lt;div class=&quot;tool-icon&quot;&gt;⚡&lt;/div&gt;
+  &lt;h3&gt;效率工具&lt;/h3&gt;
+  &lt;ul class=&quot;tool-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;https://www.processon.com&quot; target=&quot;_blank&quot;&gt;ProcessOn&lt;/a&gt; - 流程图&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://excalidraw.com&quot; target=&quot;_blank&quot;&gt;Excalidraw&lt;/a&gt; - 手绘风格画图&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://www.tablesgenerator.com&quot; target=&quot;_blank&quot;&gt;Tables&lt;/a&gt; - Markdown 表格&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- 学习资源 --&gt;
+&lt;div class=&quot;tool-card&quot;&gt;
+  &lt;div class=&quot;tool-icon&quot;&gt;📚&lt;/div&gt;
+  &lt;h3&gt;学习资源&lt;/h3&gt;
+  &lt;ul class=&quot;tool-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;https://www.runoob.com&quot; target=&quot;_blank&quot;&gt;菜鸟教程&lt;/a&gt; - 编程基础&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org&quot; target=&quot;_blank&quot;&gt;MDN&lt;/a&gt; - Web 文档&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com&quot; target=&quot;_blank&quot;&gt;Stack Overflow&lt;/a&gt; - 问答社区&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+
+<style>
+/* 工具箱样式 - 樱花主题 */
+.tools-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.tools-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, rgba(255, 182, 193, 0.3) 0%, rgba(255, 218, 225, 0.3) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 182, 193, 0.3);
+}
+
+.tools-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #d63384;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tools-desc {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+}
+
+/* 工具网格布局 */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* 工具卡片样式 - 玻璃拟态 */
+.tool-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 25px;
+  border: 1px solid rgba(255, 182, 193, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 182, 193, 0.2);
+}
+
+.tool-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(255, 182, 193, 0.4);
+  border-color: rgba(255, 105, 180, 0.5);
+}
+
+/* 工具图标 */
+.tool-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-align: center;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* 工具标题 */
+.tool-card h3 {
+  font-size: 1.4rem;
+  margin: 0 0 15px 0;
+  color: #d63384;
+  text-align: center;
+  border-bottom: 2px solid rgba(255, 182, 193, 0.5);
+  padding-bottom: 10px;
+}
+
+/* 工具列表 */
+.tool-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tool-list li {
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(255, 182, 193, 0.3);
+  transition: all 0.2s ease;
+}
+
+.tool-list li:last-child {
+  border-bottom: none;
+}
+
+.tool-list li:hover {
+  padding-left: 10px;
+  background: rgba(255, 182, 193, 0.1);
+  border-radius: 5px;
+}
+
+.tool-list a {
+  color: #666;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  display: inline-block;
+}
+
+.tool-list a:hover {
+  color: #ff69b4;
+  transform: translateX(5px);
+}
+
+/* 暗色模式适配 */
+[data-user-color-scheme="dark"] .tools-header {
+  background: linear-gradient(135deg, rgba(255, 182, 193, 0.15) 0%, rgba(255, 218, 225, 0.15) 100%);
+}
+
+[data-user-color-scheme="dark"] .tool-card {
+  background: rgba(30, 30, 40, 0.7);
+  border-color: rgba(255, 182, 193, 0.2);
+}
+
+[data-user-color-scheme="dark"] .tool-card h3 {
+  color: #ff69b4;
+}
+
+[data-user-color-scheme="dark"] .tool-list a {
+  color: #aaa;
+}
+
+[data-user-color-scheme="dark"] .tool-list li:hover {
+  background: rgba(255, 182, 193, 0.15);
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  .tools-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .tools-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .tool-card {
+    padding: 20px;
+  }
+  
+  .tool-icon {
+    font-size: 2.5rem;
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tool-card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.tool-card:nth-child(1) { animation-delay: 0.1s; }
+.tool-card:nth-child(2) { animation-delay: 0.2s; }
+.tool-card:nth-child(3) { animation-delay: 0.3s; }
+.tool-card:nth-child(4) { animation-delay: 0.4s; }
+</style>
+
+
+  
+
+</article>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/subcategory-interaction.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
